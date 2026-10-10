@@ -2,7 +2,7 @@
 
 A compact academic homepage for **GenLab**, led by Prof. Zhen Liu. Built with Astro and deployed as a static site to GitHub Pages at **https://thegenlab.ai**.
 
-The homepage introduces the lab with a conceptual illustration, presents selected research in a horizontal carousel, and lists the team and external collaborators. Individual project websites can live in their own organization repositories at `thegenlab.ai/project-name/`; the PI’s personal site remains the full research record.
+The homepage introduces the lab with a conceptual illustration, presents selected research in a horizontal carousel, and lists the team and external collaborators. New project websites can live in their own organization repositories at `thegenlab.ai/project_name/`; the PI’s personal site remains the full research record. Existing project websites and their current URLs remain unchanged.
 
 ## Development
 
@@ -46,9 +46,15 @@ After updating content, run `npm run verify` and inspect desktop and mobile prev
 
 ## Hosting
 
-See [deployment and Cloudflare setup](docs/DEPLOYMENT.md). GitHub Pages must be enabled in repository settings before the deploy workflow can succeed. The custom domain must be saved in Pages settings; adding a CNAME file does not configure an Actions-based deployment.
+The homepage was published from `main` commit `4e7bf6c` by the successful [Deploy GenLab run](https://github.com/thegenlab/thegenlab.github.io/actions/runs/38060611009). GitHub Pages uses **GitHub Actions** (`build_type: workflow`) and the repository's custom-domain setting is `thegenlab.ai`. Organization domain ownership is verified, and Cloudflare's apex and `www` records are configured.
 
-The workflow validates pull requests and publishes pushes to `main`. No backend, external font service, tracking, or form service is needed.
+**Verified on 10 October 2026:** the homepage and test project load over HTTPS with valid certificates, including their images, stylesheets, and nested links. `https://www.thegenlab.ai/` redirects to the apex. Enforce HTTPS is enabled. See [deployment status, DNS records, and project setup](docs/DEPLOYMENT.md).
+
+The workflow validates pull requests and publishes pushes to `main`. The Pages custom-domain setting is authoritative for this Actions deployment; this repository has no `public/CNAME` file. No personal access token or Cloudflare API token is needed by the workflows. No backend, external font service, tracking, or form service is needed.
+
+Use the custom domain for **new** project repositories. A public Pages site in `thegenlab/project_name` inherits `https://thegenlab.ai/project_name/`; leave that project's Custom domain field empty and do not add a project `CNAME` file. Subpaths need no additional DNS records. Configure each project's links and assets for its repository path. Existing projects are not being migrated, and their homepage links should keep their current destinations.
+
+The separate [project-test repository](https://github.com/thegenlab/project-test) is a temporary, non-research example for checking this arrangement, including a nested page and shared CSS/SVG assets. It uses branch-based Pages from `main` / `(root)` with `.nojekyll`. See the deployment guide before creating a real project site.
 
 ## Design and assets
 
