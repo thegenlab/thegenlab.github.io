@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pact", "name": "PAct", "title": "Part-Decomposed Single-View Articulated Object Generation",
+    "summary": "From a single image to a 3D object with parts that move.",
+    "authors": "Qingming Liu, Xinyue Yao, Shuyuan Zhang, Yueci Deng, Guiliang Liu, Zhen Liu, Kui Jia",
+    "venue": "SIGGRAPH Asia · Conditional acceptance", "year": 2026, "featured": true, "order": 0,
+    "image": "/images/pact.webp", "imageAlt": "PAct generates articulated furniture and appliances with movable parts.", "imageFit": "contain",
+    "links": [{"label": "Project", "url": "https://pact-project.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2602.14965"}, {"label": "Code", "url": "https://github.com/Mobiuslqm/PAct"}]
+  },
+  {
+    "id": "vgg-flow", "name": "VGG-Flow", "title": "Value Gradient Guidance for Flow Matching Alignment",
+    "summary": "Aligning generative flow models with rewards while preserving their learned priors.",
+    "authors": "Zhen Liu, Tim Z. Xiao, Carles Domingo-Enrich, Weiyang Liu, Dinghuai Zhang",
+    "venue": "NeurIPS", "year": 2025, "featured": true, "order": 1,
+    "image": "/images/vgg-flow.webp", "imageAlt": "VGG-Flow pipeline illustrating reward alignment and a guided generation trajectory.", "imageFit": "contain",
+    "links": [{"label": "Project", "url": "https://vggflow25.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2512.05116"}, {"label": "Code", "url": "https://github.com/lzzcd001/vggflow"}]
+  },
+  {
+    "id": "besiegefield", "name": "BesiegeField", "title": "Compositional Machine Design as Program Synthesis with LLMs",
+    "summary": "Language-model agents build machines as programs and refine them through physical simulation.",
+    "authors": "Wenqian Zhang, Yangyi Huang, Weiyang Liu, Zhen Liu",
+    "venue": "EMNLP · Oral", "year": 2026, "featured": true, "order": 2,
+    "image": "/images/besiegefield.webp", "imageAlt": "Machines designed and evaluated in the BesiegeField simulation environment.", "imageFit": "contain",
+    "links": [{"label": "Project", "url": "https://besiegefield.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2510.14980"}, {"label": "Code", "url": "https://github.com/Godheritage/BesiegeField"}]
+  }
+]

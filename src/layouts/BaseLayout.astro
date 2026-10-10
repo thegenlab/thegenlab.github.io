@@ -1,0 +1,59 @@
+---
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/newsreader';
+import '@fontsource-variable/newsreader/wght-italic.css';
+import '../styles/global.css';
+import Mark from '../components/Mark.astro';
+import Arrow from '../components/Arrow.astro';
+import { site } from '../data/site';
+interface Props { title?: string; description?: string; }
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} — GenLab` : 'GenLab — Generative Intelligence';
+const nav = [{label:'Selected work',href:'/#work'},{label:'About',href:'/#about'},{label:'Get in touch',href:'mailto:zhenliu@cuhk.edu.cn'}];
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f8f2" />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/social-card.png', Astro.site)} />
+    <meta property="og:image:alt" content="GenLab — Learning to understand. Learning to create." />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="/" aria-label="GenLab home"><Mark /><span>GenLab<span class="brand-period">.</span></span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation"><span>Menu</span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 6h16M2 14h16" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <nav id="main-navigation" aria-label="Main navigation">
+        {nav.map(item => <a href={item.href}>{item.label}{item.label === 'Get in touch' && <Arrow diagonal />}</a>)}
+      </nav>
+    </header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer wrap">
+      <div class="footer-bottom"><p>© {new Date().getFullYear()} GenLab<span class="footer-separator"> / </span><span>CUHK-Shenzhen</span></p><div><a href="https://github.com/thegenlab">GitHub <Arrow diagonal /></a><a href={site.homepage}>Zhen Liu <Arrow diagonal /></a></div><span class="footer-location">Shenzhen, China <span aria-hidden="true">↗</span></span></div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const navigation = document.querySelector<HTMLElement>('#main-navigation');
+      if (toggle && navigation) {
+        document.documentElement.classList.add('js');
+        const close = () => { toggle.setAttribute('aria-expanded', 'false'); navigation.classList.remove('is-open'); };
+        toggle.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') !== 'true'; toggle.setAttribute('aria-expanded', String(open)); navigation.classList.toggle('is-open', open); });
+        navigation.addEventListener('click', event => { if ((event.target as HTMLElement).closest('a')) close(); });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { close(); toggle.focus(); } });
+        matchMedia('(min-width: 801px)').addEventListener('change', close);
+      }
+    </script>
+  </body>
+</html>

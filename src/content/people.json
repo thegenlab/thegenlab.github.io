@@ -1,0 +1,15 @@
+[
+  {
+    "id": "zhen-liu",
+    "name": "Zhen Liu",
+    "role": "Principal Investigator · Assistant Professor",
+    "group": "Faculty",
+    "initials": "ZL",
+    "bio": "Zhen Liu is an Assistant Professor in the School of Data Science at The Chinese University of Hong Kong, Shenzhen. His research explores generative AI, 3D reasoning and generation, spatial and physical intelligence, and foundation model adaptation.",
+    "order": 0,
+    "links": [
+      { "label": "Personal website", "url": "https://itszhen.com/" },
+      { "label": "University profile", "url": "https://sds.cuhk.edu.cn/en/teacher/1951" }
+    ]
+  }
+]
