@@ -1,8 +1,8 @@
 # Publish GenLab at thegenlab.ai
 
-The homepage is published from [thegenlab/thegenlab.github.io](https://github.com/thegenlab/thegenlab.github.io) using Astro, GitHub Actions, and GitHub Pages. The custom domain and Cloudflare DNS are configured. **Verified on 10 October 2026:** the homepage and the original static subpath test loaded over HTTPS with valid certificates, including their assets and nested links. `https://www.thegenlab.ai/` redirects to the apex. Enforce HTTPS is enabled. The test repository has since been converted into the code-and-website starter described below; its deployment, template setting, and strict HTTPS checks also passed.
+The homepage is published from [thegenlab/thegenlab.github.io](https://github.com/thegenlab/thegenlab.github.io) using Astro, GitHub Actions, and GitHub Pages. The custom domain and Cloudflare DNS are configured. **Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. The website-only starter described below was deployed and verified over HTTPS on **11 October 2026**.
 
-The custom domain will also serve **new project websites** in separate organization repositories. Existing project websites and their current URLs remain unchanged; they are not being migrated as part of this setup.
+The custom domain will also serve **new project websites** in dedicated organization repositories. Keep each project's research code in a completely separate repository and link to it from the website. Existing project websites, research repositories and current URLs remain unchanged; they are not being migrated as part of this setup.
 
 ## Current deployment
 
@@ -16,8 +16,9 @@ The custom domain will also serve **new project websites** in separate organizat
 | Cloudflare website records | Four GitHub Pages apex A records and `www` CNAME; DNS only; TTL 300 seconds |
 | HTTPS certificate | Approved for `thegenlab.ai` and `www.thegenlab.ai`; expires 8 January 2027 |
 | Enforce HTTPS | Enabled |
-| Project starter | Public `thegenlab/project-test`; `website/` Astro app; template enabled; Pages uses GitHub Actions with no project custom domain |
-| Starter deployment | Commit `d58b97c`; successful [Project website run](https://github.com/thegenlab/project-test/actions/runs/38065228955); landing page, nested page, CSS and SVG verified over HTTPS |
+| Project starter settings | Public `thegenlab/project-test`; template enabled; Pages uses GitHub Actions with no project custom domain |
+| Website-only starter | Astro app at the repository root; workflow builds the root and uploads only `dist/` |
+| Starter deployment | Commit `ed7c84f`; successful [Project website run](https://github.com/thegenlab/project-test/actions/runs/38066066802) on 11 October 2026; strict HTTPS checks passed |
 
 ## Publish homepage updates
 
@@ -61,7 +62,7 @@ Optional IPv6 records, if added later, are all four of the following; they are n
 
 ## HTTPS and redirects
 
-The certificate covers both hostnames, and **Enforce HTTPS** is enabled in repository **Settings → Pages**. Strict certificate checks passed for the homepage, its stylesheet, illustration and research images, and the original static test project's root page, nested page, CSS and SVG. The live homepage and original test pages were also inspected in a browser. The replacement Astro starter subsequently passed strict HTTPS requests for its landing page, nested page, stylesheet and SVG, with downloaded bytes matching the built files. Its live landing page was inspected in a browser, and clicking through to the nested page succeeded with the stylesheet and SVG loaded. See [GitHub's HTTPS guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
+The certificate covers both hostnames, and **Enforce HTTPS** is enabled in repository **Settings → Pages**. On 10 October 2026, strict certificate checks passed for the homepage, its stylesheet, illustration and research images; the live homepage was also inspected in a browser. On 11 October 2026, the website-only starter passed strict HTTPS requests for its landing page, nested page, stylesheet and SVG, with all responses matching the built files. See [GitHub's HTTPS guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
 
 After any future hosting changes, check that:
 
@@ -76,16 +77,18 @@ The website setup does not create email mailboxes. Only publish `contact@thegenl
 
 ## New project websites under the same domain
 
-For future projects, keep the research code and project website in **one public repository under thegenlab**, for example `thegenlab/project_name`. Place the Astro app in `website/` and deploy only its built output. The repository's Pages site inherits `https://thegenlab.ai/project_name/` from the organization homepage's custom domain; `website/` is a source folder and does not appear in the public URL. GitHub documents this [custom-domain inheritance across repositories](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages#using-a-custom-domain-across-multiple-repositories).
+For future projects, use **separate repositories for the website and research code**. Reserve a public website repository such as `thegenlab/project-name` for the Astro app, with `src/`, `public/` and `package.json` at its root. Its Pages site inherits `https://thegenlab.ai/project-name/` from the organization homepage's custom domain. GitHub documents this [custom-domain inheritance across repositories](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages#using-a-custom-domain-across-multiple-repositories).
+
+The research-code repository can use any owner and name; link to its actual URL from the project website. If both repositories are in **thegenlab**, they must have different names. For example, the website could use `thegenlab/project-name` and the code could use `thegenlab/project-name-code`. These are naming examples only. No new organization is needed, and existing repositories do not need to be moved or renamed.
 
 For every new project:
 
-1. Use **Use this template → Create a new repository** on [thegenlab/project-test](https://github.com/thegenlab/project-test). Choose **thegenlab** as the owner, a new project name, public visibility, and the default branch only. Keep research code alongside the `website/` app in that same repository.
+1. Use **Use this template → Create a new repository** on [thegenlab/project-test](https://github.com/thegenlab/project-test). Choose **thegenlab** as the owner, the desired website path as the repository name, public visibility, and the default branch only. This repository contains the project website; research code belongs in a separate repository.
 2. Replace the example content and assets with verified project material. The template keeps its fake-project labels and `noindex` metadata; remove those only when preparing a real project for publication. Creating a repository from a template does not rewrite its content for the new project.
 3. In the new repository's **Settings → Pages**, select **GitHub Actions** as the source. Leave **Custom domain** empty and omit any project `CNAME` file. A project-specific custom domain overrides the inherited address.
-4. Add no DNS records for `/project_name/`; the existing apex records already cover the domain. DNS does not route URL subpaths.
-5. Use the exact repository name as the URL path. The starter workflow passes it as `PROJECT_SLUG`; internal links and assets must use Astro's configured base. Publish the project's `website/dist/` independently from this homepage.
-6. Run the `website.yml` workflow on `main` after enabling Pages, or push a website change to `main`. Pull requests check the website but do not deploy it. Research-code-only pushes to `main` do not deploy the website.
+4. Add no DNS records for `/project-name/`; the existing apex records already cover the domain. DNS does not route URL subpaths.
+5. Use the exact website repository name as the URL path. The starter workflow passes it as `PROJECT_SLUG`; internal links and assets must use Astro's configured base. Build from the website repository root and publish only `dist/`, independently from this homepage and the code repository.
+6. Run the `website.yml` workflow on `main` after enabling Pages, or push a website change to `main`. Pull requests check the website but do not deploy it. Changes in the separate research-code repository do not deploy the website.
 7. Check the deployed project, including at least one nested page and its assets, before adding its new URL to this homepage's `src/content/publications.json`.
 
 Pages setup is a per-repository step. A repository created from a template starts with a new commit history and does not automatically receive later template changes. See [GitHub's repository-template guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) and [Pages publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
@@ -94,7 +97,7 @@ Publicly accessible Pages sites inherit the organization domain; privately publi
 
 ### Astro project configuration
 
-The starter builds Astro from `website/`. Its workflow sets `PROJECT_SLUG` to `${{ github.event.repository.name }}`, so a new repository gets its own URL prefix without editing the deployment workflow. The configuration in **that project's `website/astro.config.mjs`** follows this pattern:
+The website-only starter builds Astro from the repository root. Its workflow sets `PROJECT_SLUG` to `${{ github.event.repository.name }}`, so a new website repository gets its own URL prefix without editing the deployment workflow. The configuration in **that website repository's `astro.config.mjs`** follows this pattern:
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -109,33 +112,35 @@ export default defineConfig({
 });
 ```
 
-For local checks of a new project, set `PROJECT_SLUG` to its exact repository name, for example `PROJECT_SLUG=project_name npm run build` from `website/`; the example fallback is only for the test project. Ensure manually written internal links and public asset URLs include the base, for example `${import.meta.env.BASE_URL}images/teaser.jpg`. Keep the prefix when using the inherited organization domain. See Astro's [base configuration](https://docs.astro.build/en/reference/configuration-reference/#base) and [Pages project-path guidance](https://docs.astro.build/en/guides/deploy/github/#how-to-deploy). Other frameworks need their equivalent path setting.
+For local checks of a new website, set `PROJECT_SLUG` to its exact repository name, for example `PROJECT_SLUG=project-name npm run build` from the repository root; the example fallback is only for the test website. Keep project-specific configuration in the root `project.config.mjs` and link to the separate research-code repository. Ensure manually written internal links and public asset URLs include the base, for example `${import.meta.env.BASE_URL}images/teaser.jpg`. Keep the prefix when using the inherited organization domain. See Astro's [base configuration](https://docs.astro.build/en/reference/configuration-reference/#base) and [Pages project-path guidance](https://docs.astro.build/en/guides/deploy/github/#how-to-deploy). Other frameworks need their equivalent path setting.
 
-For a plain HTML site, explicit prefixed paths such as `/project_name/assets/site.css` and `/project_name/nested/` work from both the root page and nested pages. Relative paths are also possible, but must account for each page's depth.
+For a plain HTML site, explicit prefixed paths such as `/project-name/assets/site.css` and `/project-name/nested/` work from both the root page and nested pages. Relative paths are also possible, but must account for each page's depth.
 
 Reserve each project path for that project's deployment: do not generate a page or copy a folder with the same name into this homepage's build. Keep this homepage's `base` unset. Changing the homepage should not require rebuilding project websites.
 
-### Code-and-website starter
+### Website-only starter
 
-The separate [thegenlab/project-test](https://github.com/thegenlab/project-test) repository has been converted from the original root-level HTML test into a reusable starter with this structure:
+The [thegenlab/project-test](https://github.com/thegenlab/project-test) repository is a reusable website-only starter with this root structure:
 
 ```text
 .github/workflows/website.yml
-website/
-  package.json
-  package-lock.json
-  astro.config.mjs
-  src/
-  public/
+package.json
+package-lock.json
+project.config.mjs
+astro.config.mjs
+src/
+public/
 ```
 
-Research code belongs elsewhere in the same repository. The workflow runs website checks on pull requests; changes to `website/**` or `.github/workflows/website.yml` on `main` also deploy. `workflow_dispatch` allows a manual run. Only `website/dist/` is uploaded to Pages. Keep the workflow at the repository root, even though the Astro app is in a subdirectory.
+Research code belongs in a completely separate repository. The `.github/workflows/website.yml` workflow builds the Astro app from the website repository root, checks pull requests, and deploys from `main`. `workflow_dispatch` allows a manual run. Only `dist/` is uploaded to Pages. The starter contains no research-code placeholder directory.
 
-The confirmed settings are **Pages → GitHub Actions** (`build_type: workflow`), an empty project **Custom domain** (`cname: null`), and **Template repository** enabled (`is_template: true`). This replaces the old branch-based root publishing configuration. No `CNAME` or additional DNS record is needed.
+The confirmed repository settings are **Pages → GitHub Actions** (`build_type: workflow`), an empty project **Custom domain** (`cname: null`), and **Template repository** enabled (`is_template: true`). No `CNAME` or additional DNS record is needed.
 
 Its inherited address remains `https://thegenlab.ai/project-test/`. Keep the example visibly labeled as fake/test content and retain `noindex`; it is not a lab publication and should not appear in Selected research.
 
-The successful [Project website run](https://github.com/thegenlab/project-test/actions/runs/38065228955) deployed commit `d58b97c83f582daccdae69b9cd67039e33e38b99`. Post-deployment checks on 10 October 2026 returned **200 with valid TLS** for the landing page, nested page, stylesheet and SVG; all four responses matched the files in `website/dist/` byte for byte. Browser inspection also confirmed the landing page, navigation to the nested page, and loaded styles and SVG. Both pages retain `noindex`. Repository-only `code/README.md` and `README.md` return **404 at their project-site URLs**, confirming that those source files were not published. The GenLab homepage also remained available with a **200** response. Repeat these checks and inspect the browser layout when adapting the starter for a real project.
+The successful [Project website run](https://github.com/thegenlab/project-test/actions/runs/38066066802) deployed commit `ed7c84fcd3194b4da9aa4b79ebc86c1a4f44c324` on **11 October 2026**. The root-level `npm run verify` completed with zero errors, and the deployed workflow matched the reviewed source.
+
+Independent requests with strict TLS verification returned **200** for the landing page, `/project-test/nested/`, `/project-test/styles.css`, and `/project-test/assets/path-check.svg`. All four responses matched the files in root `dist/` byte for byte. Both HTML pages contain `noindex, nofollow`. `/project-test/README.md` and `/project-test/package.json` return **404**, confirming those repository files are not published. The GenLab homepage also returned **200** with its expected title. Repeat the deployment checks and inspect the rendered layout when adapting the starter for a real project.
 
 ## Workflow versions
 
