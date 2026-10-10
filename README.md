@@ -74,16 +74,18 @@ Edit these files without changing the layout:
 | Content | File |
 | --- | --- |
 | Featured projects / papers | `src/content/publications.json` |
-| Team | `src/content/people.json` |
+| Team and alumni | `src/content/people.json` |
 | External collaborators | `src/content/collaborators.json` |
 | Lab details | `src/data/site.ts` |
 | Homepage introduction | `src/pages/index.astro` |
 | New project website source | `src/projects/<project>/` |
 | New project URL routes | `src/pages/<project>/` |
 
-Every content entry has a unique `id`. Astro validates entries at build time. For projects, `featured: true` includes an entry in Selected research; lower `order` values appear first. The carousel supports more than three projects without changing the layout. Use distinct order values for predictable placement. The first link is the project destination; remaining links typically point to the paper and code. Homepage carousel image sources belong in `src/assets/research/`. Set each JSON `image` to a path relative to the content file, for example `../assets/research/projectA.webp`, and provide descriptive `imageAlt` text. Astro validates the source and generates 400- and 800-pixel WebP thumbnails during the build; browsers select the appropriate size and load offscreen figures lazily. Keep the complete source figure in the repository rather than manually maintaining thumbnail variants. `imageFit` can be `contain` (show the whole figure) or `cover` (fill the preview).
+Every content entry has a unique `id`. Astro validates entries at build time. For projects, `featured: true` includes an entry in Selected research; lower `order` values appear first. The carousel supports more than three projects without changing the layout. Use distinct order values for predictable placement. The first link is the project destination; remaining links typically point to the paper and code. Homepage carousel image sources belong in `src/assets/research/`. Set each JSON `image` to a path relative to the content file, for example `../assets/research/projectA.webp`, and provide descriptive `imageAlt` text. Astro validates the source and generates 320-, 480-, and 640-pixel WebP thumbnails during the build; browsers select the appropriate size and load offscreen figures lazily. Keep the complete source figure in the repository rather than manually maintaining thumbnail variants. `imageFit` can be `contain` (show the whole figure) or `cover` (fill the preview).
 
 The compact Team section groups `people.json` into Faculty, Core members, and Research assistants & visiting students, preserving ascending `order` within each group. Only PhD and MPhil students belong to the `Students` group displayed as Core members; the content schema enforces this. Research assistants and visiting students keep their separate group regardless of degree level. Add or update members using confirmed names, roles, and affiliations, and only include verified personal or institutional links.
+
+Alumni use the same `people.json` file. Set `group` to `Alumni` for former members and add an `alumni` object with confirmed `source` and `destination` strings (degree or role plus institution); `alumni.order` controls the alumni list independently of current-team order. The schema requires both transition fields for the Alumni group. If a person continues in the lab after an earlier appointment, retain their existing record and current group, and add the transition there rather than creating a duplicate ID. For example, Zhou Jiang remains a current PhD student and also has an undergraduate-to-PhD transition in the alumni list.
 
 External collaborators are maintained separately in `collaborators.json` and sorted by `order`. Each entry needs `id`, `name`, and `affiliation`; use `order` to set its position. The optional `links` array uses `{ "label": "Personal website", "url": "https://…" }` entries. Omit it when no link has been confirmed. The initial four names and affiliations were supplied by the lab owner.
 
@@ -104,5 +106,7 @@ Keep the research implementation in `thegenlab/<project>` and link to it from th
 The homepage uses locally served **IBM Plex Sans** from `public/fonts/plex-sans.woff2`; its license is included in `public/fonts/OFL.txt`. The introduction pairs “Understand. Create.” with `src/assets/concept-room.png`, which Astro optimizes into responsive images at build time. The illustration prompt is recorded in `docs/ILLUSTRATION-PROMPT.txt`.
 
 Project figures come from the linked research websites; their source credits and factual verification are recorded in [content sources](docs/CONTENT-SOURCES.md). These research assets retain their authors’ rights. Keep the Team and External collaborators sections compact, using names, roles or affiliations, and confirmed links.
+
+The homepage caps research previews at 640 pixels and its illustration at 960 pixels. `npm run verify` guards a 10 MiB estimate for one decoded RGBA buffer per largest homepage image candidate; this is a maintenance budget, not a measurement of browser RAM. Review the budget when adding more featured projects. Global mouse-drag listeners exist only during a gesture, and active animation stops when the page is hidden.
 
 The carousel supports native touch and trackpad scrolling, mouse dragging, previous/next buttons, and keyboard navigation. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Keep each project website’s layout and styles independent of the homepage. The [project website guide](docs/PROJECTS.md) explains asset imports, nested routes and style isolation.

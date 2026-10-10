@@ -101,13 +101,16 @@ if (carousel) {
       id: event.pointerId, x: event.clientX, y: event.clientY, left: track.scrollLeft,
       active: false, lastLeft: track.scrollLeft, lastTime: event.timeStamp, velocity: 0,
     };
+    window.addEventListener('pointermove', moveDrag);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
   });
-  window.addEventListener('pointermove', event => {
+  const moveDrag = (event: PointerEvent) => {
     if (!drag || event.pointerId !== drag.id) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
     if (!drag.active) {
-      if (Math.abs(dy) > 6 && Math.abs(dy) > Math.abs(dx)) { drag = null; return; }
+      if (Math.abs(dy) > 6 && Math.abs(dy) > Math.abs(dx)) { endDrag(); return; }
       if (Math.abs(dx) < 6) return;
       drag.active = true;
       suppressClick = true;
@@ -122,19 +125,31 @@ if (carousel) {
     drag.lastLeft = left;
     drag.lastTime = event.timeStamp;
     track.scrollLeft = left;
-  });
+  };
   const endDrag = (event?: PointerEvent) => {
     if (!drag || (event && event.pointerId !== drag.id)) return;
     const ended = drag;
     drag = null;
+    window.removeEventListener('pointermove', moveDrag);
+    window.removeEventListener('pointerup', endDrag);
+    window.removeEventListener('pointercancel', endDrag);
     track.classList.remove('is-dragging');
     if (track.hasPointerCapture(ended.id)) track.releasePointerCapture(ended.id);
     if (ended.active && event?.type === 'pointerup' && event.timeStamp - ended.lastTime < 80) coast(ended.velocity);
   };
-  window.addEventListener('pointerup', endDrag);
-  window.addEventListener('pointercancel', endDrag);
   track.addEventListener('lostpointercapture', endDrag);
-  window.addEventListener('blur', () => { endDrag(); stopMotion(); });
+  const pause = () => {
+    endDrag();
+    stopMotion();
+    cancelAnimationFrame(updateFrame);
+    update();
+  };
+  window.addEventListener('blur', pause);
+  window.addEventListener('pagehide', pause);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pause();
+    else scheduleUpdate();
+  });
   track.addEventListener('dragstart', event => event.preventDefault());
   track.addEventListener('selectstart', event => { if (drag?.active) event.preventDefault(); });
   track.addEventListener('click', event => {
@@ -167,6 +182,5 @@ if (carousel) {
   });
   reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) stopMotion(); });
   new ResizeObserver(measure).observe(track);
-  new MutationObserver(measure).observe(track, { childList: true });
   measure();
 }

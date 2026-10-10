@@ -19,7 +19,16 @@ Checked 10 October 2026. Featured projects were selected and ordered by the lab 
 - Wenqian Zhang's confirmed personal website: https://godheritage.github.io/AboutMe/. No other student links have been inferred.
 - Zixuan Wang was added by the lab owner on 11 October 2026 as an undergraduate in the research assistants / visiting students group. No personal link was supplied.
 - The owner specified that only PhD and MPhil students are core members. The homepage therefore separates Faculty, Core members, and Research assistants & visiting students.
-- The current team contains eleven people, including the PI. Alumni Qingming Liu, Yuping Zheng, and Bao Li are excluded from this current roster. Zhou Jiang also appears in the source's alumni section for an earlier undergraduate role and is included only once, as a current PhD student.
+- The current team contains eleven people, including the PI. Alumni Qingming Liu, Yuping Zheng, and Bao Li remain separate from the current roster. Zhou Jiang has a single person record as a current PhD student, with his earlier undergraduate-to-PhD transition also shown in Alumni.
+
+## Alumni
+
+- Source: the Alumni subsection of https://itszhen.com/#people, checked against the live page and the owner’s local personal website on 11 October 2026. The owner requested alumni with their source and destination.
+- Qingming Liu: MPhil, CUHK-Shenzhen → PhD, HKUST. Confirmed personal website: https://mobiuslqm.github.io/.
+- Zhou Jiang: Undergraduate, SCUT → PhD, CUHK-Shenzhen. He remains in the current Core members group; this row records his earlier undergraduate appointment rather than implying that he has left the lab.
+- Yuping Zheng: Undergraduate, CUHK-Shenzhen → PhD, University of Virginia.
+- Bao Li: Master, Chinese Academy of Sciences, with Yuliang Xiu → PhD, Chinese Academy of Sciences. The advisor context is retained.
+- The compact display abbreviates CUHK-Shenzhen as CUHK-SZ. No dates or additional links were inferred. Source order is preserved through the separate `alumni.order` field.
 
 ## External collaborators
 
@@ -109,6 +118,6 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Venue: ICLR 2025, confirmed by the [official proceedings](https://proceedings.iclr.cc/paper_files/paper/2025/hash/ec52962a55a83c3d860b5c9b7338422b-Abstract-Conference.html). The year follows the conference publication; the original preprint appeared in December 2024. Sources checked 11 October 2026.
 - The summary describes reward-gradient-based diffusion alignment with diversity and prior preservation, without adding performance claims.
 
-The complete, uncropped research figure sources are stored in `src/assets/research/`; most were initially prepared at 1,200 pixels wide. Since 11 October 2026, Astro generates 400- and 800-pixel-wide WebP thumbnails at build time (quality 76) for the carousel. The page serves responsive thumbnails with lazy loading and asynchronous decoding; the higher-resolution source files are not linked by the homepage. This changes preview delivery, not figure content or source attribution. The carousel order is BesiegeField, EVA, DrPO, PAct, ASAP, VGG-Flow, Nabla-GFlowNet, G-Shell, MeshDiffusion. All project links retain their original external addresses.
+The complete, uncropped research figure sources are stored in `src/assets/research/`; most were initially prepared at 1,200 pixels wide. Since 11 October 2026, Astro generates 320-, 480-, and 640-pixel-wide WebP thumbnails at build time (quality 76) for the carousel. The page serves responsive thumbnails with lazy loading and asynchronous decoding; the higher-resolution source files are not linked by the homepage. This changes preview delivery, not figure content or source attribution. The carousel order is BesiegeField, EVA, DrPO, PAct, ASAP, VGG-Flow, Nabla-GFlowNet, G-Shell, MeshDiffusion. All project links retain their original external addresses.
 
 Figures are reproduced as research previews linking directly to the corresponding project sites. Original research images remain credited to their respective authors; no broad asset license is asserted here. Descriptions are concise paraphrases, not new performance claims. Existing project websites retain their original URLs; none has been migrated to the GenLab domain.

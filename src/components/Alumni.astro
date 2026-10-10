@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  people: CollectionEntry<'people'>[];
+}
+
+const { people } = Astro.props;
+const alumni = people.flatMap(({ data }) => data.alumni ? [{
+  name: data.name,
+  link: data.links[0]?.url,
+  transition: data.alumni,
+}] : []).sort((a, b) => a.transition.order - b.transition.order);
+---
+{alumni.length > 0 && <section class="alumni" aria-labelledby="team-alumni-title">
+  <h3 id="team-alumni-title">Alumni</h3>
+  <ul>
+    {alumni.map(person => <li>
+      <p class="person-name">{person.link ? <a href={person.link} target="_blank" rel="noopener">{person.name}</a> : person.name}</p>
+      <p class="alumni-route"><span class="sr-only">From </span>{person.transition.source} <span aria-hidden="true">→</span><span class="sr-only"> to </span> {person.transition.destination}</p>
+    </li>)}
+  </ul>
+</section>}
+<style>
+  .alumni { margin-top: 27px; }
+  h3 { font-size: 12px; line-height: 1.5; font-weight: 450; color: #69717b; margin-bottom: 13px; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+  li { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 24px; align-items: baseline; }
+  .alumni-route { font-size: 12px; line-height: 1.65; color: #69717b; }
+  @media (max-width: 740px) {
+    .alumni { margin-top: 23px; }
+    li { grid-template-columns: 120px minmax(0, 1fr); column-gap: 18px; }
+  }
+  @media (max-width: 560px) {
+    h3 { font-size: 11px; margin-bottom: 11px; }
+    ul { gap: 14px; }
+    li { grid-template-columns: 1fr; gap: 3px; }
+    .alumni-route { font-size: 11px; }
+  }
+</style>

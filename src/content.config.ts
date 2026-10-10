@@ -5,9 +5,23 @@ import { file } from 'astro/loaders';
 const link = z.object({ label: z.string(), url: z.url() });
 const people = defineCollection({
   loader: file('src/content/people.json'),
-  schema: z.object({ name: z.string(), role: z.string(), group: z.enum(['Faculty', 'Students', 'Research assistants', 'Visitors and research assistants', 'Alumni']), order: z.number().default(99), links: z.array(link).default([]) }).refine(
+  schema: z.object({
+    name: z.string(),
+    role: z.string(),
+    group: z.enum(['Faculty', 'Students', 'Research assistants', 'Visitors and research assistants', 'Alumni']),
+    order: z.number().default(99),
+    links: z.array(link).default([]),
+    alumni: z.object({
+      source: z.string().min(1),
+      destination: z.string().min(1),
+      order: z.number().default(99),
+    }).optional(),
+  }).refine(
     person => person.group !== 'Students' || ['PhD student', 'MPhil student'].includes(person.role),
     { message: 'Core members must be PhD or MPhil students.', path: ['role'] },
+  ).refine(
+    person => person.group !== 'Alumni' || person.alumni !== undefined,
+    { message: 'Alumni must include their source and destination.', path: ['alumni'] },
   ),
 });
 const collaborators = defineCollection({

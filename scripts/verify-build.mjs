@@ -63,5 +63,19 @@ for (const file of pages) {
     localLinks++;
   }
 }
+// Guard decoded pixel dimensions, rather than only compressed transfer size.
+// This estimates one RGBA buffer per largest candidate, not total browser RAM.
+let decodedImageBytes = 0;
+for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
+  const attributes = Object.fromEntries(Array.from(tag.matchAll(/([\w:-]+)="([^"]*)"/g), match => [match[1], match[2]]));
+  const width = Number(attributes.width), height = Number(attributes.height);
+  assert.ok(width > 0 && height > 0, 'Homepage images need explicit positive dimensions');
+  const candidates = Array.from((attributes.srcset ?? '').matchAll(/\s(\d+)w(?:,|$)/g), match => Number(match[1]));
+  const largestWidth = Math.max(width, ...candidates);
+  decodedImageBytes += largestWidth * Math.ceil(height * largestWidth / width) * 4;
+}
+assert.ok(decodedImageBytes <= 10 * 1024 ** 2,
+  'Homepage exceeds its 10 MiB decoded-image estimate; review preview sizes before increasing this budget.');
+console.log(`Largest homepage image candidates: ${(decodedImageBytes / 1024 ** 2).toFixed(2)} MiB estimated RGBA pixels.`);
 assert.ok(!html.includes('contact@thegenlab.ai'), 'Unconfigured lab email must not be advertised');
 console.log(`Verified homepage metadata, domain configuration, ${pages.length} pages and ${localLinks} local links/assets.`);

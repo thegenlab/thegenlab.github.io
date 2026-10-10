@@ -35,7 +35,12 @@
     "role": "PhD student",
     "group": "Students",
     "order": 2,
-    "links": []
+    "links": [],
+    "alumni": {
+      "source": "Undergraduate, SCUT",
+      "destination": "PhD, CUHK-SZ",
+      "order": 1
+    }
   },
   {
     "id": "jinming-ren",
@@ -100,5 +105,49 @@
     "group": "Visitors and research assistants",
     "order": 10,
     "links": []
+  },
+  {
+    "id": "qingming-liu",
+    "name": "Qingming Liu",
+    "role": "MPhil student",
+    "group": "Alumni",
+    "order": 11,
+    "links": [
+      {
+        "label": "Personal website",
+        "url": "https://mobiuslqm.github.io/"
+      }
+    ],
+    "alumni": {
+      "source": "MPhil, CUHK-SZ",
+      "destination": "PhD, HKUST",
+      "order": 0
+    }
+  },
+  {
+    "id": "yuping-zheng",
+    "name": "Yuping Zheng",
+    "role": "Undergraduate",
+    "group": "Alumni",
+    "order": 12,
+    "links": [],
+    "alumni": {
+      "source": "Undergraduate, CUHK-SZ",
+      "destination": "PhD, University of Virginia",
+      "order": 2
+    }
+  },
+  {
+    "id": "bao-li",
+    "name": "Bao Li",
+    "role": "Master’s student",
+    "group": "Alumni",
+    "order": 13,
+    "links": [],
+    "alumni": {
+      "source": "Master’s, Chinese Academy of Sciences (with Yuliang Xiu)",
+      "destination": "PhD, Chinese Academy of Sciences",
+      "order": 3
+    }
   }
 ]
