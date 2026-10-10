@@ -11,7 +11,7 @@ assert.match(html, /rel="canonical" href="https:\/\/thegenlab.ai\/"/);
 assert.equal((html.match(/<h1\b/g) || []).length, 1, 'Homepage needs one main heading');
 for (const id of ['main', 'work', 'research-track', 'team', 'collaborators']) assert.match(html, new RegExp(`id="${id}"`));
 for (const asset of ['404.html', 'favicon.svg', 'social-card.png', 'robots.txt', 'sitemap.xml']) await access(path.join(root, asset));
-// Validate every generated page, including standalone project sites from public/.
+// Validate every generated page, including the explicit Astro project routes.
 async function htmlFiles(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   const nested = await Promise.all(entries.map(entry => {
@@ -20,6 +20,9 @@ async function htmlFiles(dir) {
   }));
   return nested.flat();
 }
+const publicPages = await htmlFiles(fileURLToPath(new URL('../public/', import.meta.url)));
+assert.equal(publicPages.length, 0,
+  'Page source belongs in src/pages and src/projects, not public/: ' + publicPages.join(', '));
 let localLinks = 0;
 const pages = await htmlFiles(root);
 for (const file of pages) {
