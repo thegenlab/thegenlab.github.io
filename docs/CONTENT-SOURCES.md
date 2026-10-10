@@ -109,6 +109,6 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Venue: ICLR 2025, confirmed by the [official proceedings](https://proceedings.iclr.cc/paper_files/paper/2025/hash/ec52962a55a83c3d860b5c9b7338422b-Abstract-Conference.html). The year follows the conference publication; the original preprint appeared in December 2024. Sources checked 11 October 2026.
 - The summary describes reward-gradient-based diffusion alignment with diversity and prior preservation, without adding performance claims.
 
-The previews are complete, uncropped figures optimized to 1,200-pixel-wide WebP files. The carousel order is BesiegeField, EVA, DrPO, PAct, VGG-Flow, ASAP, Nabla-GFlowNet, G-Shell, MeshDiffusion. All project links retain their original external addresses.
+The previews are complete, uncropped figures optimized to 1,200-pixel-wide WebP files. The carousel order is BesiegeField, EVA, DrPO, PAct, ASAP, VGG-Flow, Nabla-GFlowNet, G-Shell, MeshDiffusion. All project links retain their original external addresses.
 
 Figures are reproduced as research previews linking directly to the corresponding project sites. Original research images remain credited to their respective authors; no broad asset license is asserted here. Descriptions are concise paraphrases, not new performance claims. Existing project websites retain their original URLs; none has been migrated to the GenLab domain.

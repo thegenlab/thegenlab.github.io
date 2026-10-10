@@ -112,6 +112,30 @@
     ]
   },
   {
+    "id": "asap",
+    "name": "ASAP",
+    "title": "Towards Anatomically Plausible Human Image Generation via Synthetic Localized Preferences",
+    "summary": "Reducing anatomical errors in generated human images through synthetic, localized preferences.",
+    "authors": "Bao Li, Yuliang Xiu, Zhen Liu",
+    "venue": "arXiv",
+    "year": 2026,
+    "featured": true,
+    "order": 4,
+    "image": "/images/asap.webp",
+    "imageAlt": "ASAP generated human images and comparisons highlighting corrections to hands and faces.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://britton-li.github.io/ASAP/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2605.25759"
+      }
+    ]
+  },
+  {
     "id": "vgg-flow",
     "name": "VGG-Flow",
     "title": "Value Gradient Guidance for Flow Matching Alignment",
@@ -120,7 +144,7 @@
     "venue": "NeurIPS",
     "year": 2025,
     "featured": true,
-    "order": 4,
+    "order": 5,
     "image": "/images/vgg-flow.webp",
     "imageAlt": "VGG-Flow pipeline illustrating reward alignment and a guided generation trajectory.",
     "imageFit": "contain",
@@ -136,30 +160,6 @@
       {
         "label": "Code",
         "url": "https://github.com/lzzcd001/vggflow"
-      }
-    ]
-  },
-  {
-    "id": "asap",
-    "name": "ASAP",
-    "title": "Towards Anatomically Plausible Human Image Generation via Synthetic Localized Preferences",
-    "summary": "Reducing anatomical errors in generated human images through synthetic, localized preferences.",
-    "authors": "Bao Li, Yuliang Xiu, Zhen Liu",
-    "venue": "arXiv",
-    "year": 2026,
-    "featured": true,
-    "order": 5,
-    "image": "/images/asap.webp",
-    "imageAlt": "ASAP generated human images and comparisons highlighting corrections to hands and faces.",
-    "imageFit": "contain",
-    "links": [
-      {
-        "label": "Project",
-        "url": "https://britton-li.github.io/ASAP/"
-      },
-      {
-        "label": "Paper",
-        "url": "https://arxiv.org/abs/2605.25759"
       }
     ]
   },
