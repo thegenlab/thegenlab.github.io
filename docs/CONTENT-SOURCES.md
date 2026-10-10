@@ -17,7 +17,9 @@ Checked 10 October 2026. Featured projects were selected and ordered by the lab 
 - MPhil student: Jinming Ren.
 - The source's combined “Visiting students & research assistants” group includes master's students Yaocheng Guo and Xiangwei Shen, and undergraduates Zihao Zhou, Zhuoran Xia, Jinlong Yang, and Zigeng Xu. These six entries retain the combined group in the content data; their compact visible labels describe their degree level without assigning an unverified appointment type.
 - Wenqian Zhang's confirmed personal website: https://godheritage.github.io/AboutMe/. No other student links have been inferred.
-- The current team contains ten people, including the PI. Alumni Qingming Liu, Yuping Zheng, and Bao Li are excluded from this current roster. Zhou Jiang also appears in the source's alumni section for an earlier undergraduate role and is included only once, as a current PhD student.
+- Zixuan Wang was added by the lab owner on 11 October 2026 as an undergraduate in the research assistants / visiting students group. No personal link was supplied.
+- The owner specified that only PhD and MPhil students are core members. The homepage therefore separates Faculty, Core members, and Research assistants & visiting students.
+- The current team contains eleven people, including the PI. Alumni Qingming Liu, Yuping Zheng, and Bao Li are excluded from this current roster. Zhou Jiang also appears in the source's alumni section for an earlier undergraduate role and is included only once, as a current PhD student.
 
 ## External collaborators
 
@@ -67,7 +69,7 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Project: https://ugvly.github.io/DrPO/
 - Paper: https://arxiv.org/abs/2606.02521
 - Code: https://github.com/UGVly/DrPO
-- Figure: https://ugvly.github.io/DrPO/assets/hero-teaser.webp
+- Figure: https://ugvly.github.io/DrPO/assets/drpo-method-overview.webp — the complete overview from the official project page’s Method section, showing the feature-space drift construction and samples across finetuning steps. Checked 11 October 2026; resized to 1,200 pixels wide and encoded as WebP without cropping.
 - Authors: Zhou Jiang, Yandong Wen, Zhen Liu. NeurIPS 2026 follows the PI's author-maintained publication record, also displayed on https://itszhen.com/. The project page and arXiv record verify the method and authors but currently omit the conference label.
 
 ## ASAP
@@ -97,6 +99,16 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Venue: ICLR 2024 Oral, verified on the project page, official code repository and PI's record. The publication year is 2024; the original preprint appeared in 2023.
 - Title and author order match the paper and PI's record. The summary covers both reconstruction and generation of closed and open surfaces.
 
-The previews are complete, uncropped figures optimized to 1,200-pixel-wide WebP files. The carousel order is BesiegeField, EVA, DrPO, PAct, VGG-Flow, ASAP, MeshDiffusion, G-Shell. All project links retain their original external addresses.
+## Nabla-GFlowNet
+
+- Project: https://nabla-gfn.github.io/
+- Paper: https://arxiv.org/abs/2412.07775
+- Code: https://github.com/lzzcd001/nabla-gfn — linked by the project page and identified as the official implementation.
+- Figure: https://nabla-gfn.github.io/static/images/teaser.png — the complete official teaser, showing residual gradient-informed detailed-balance diagrams and generated samples across finetuning steps. Visually checked, resized to 1,200 pixels wide and converted to WebP without cropping.
+- Title: Efficient Diversity-Preserving Diffusion Alignment via Gradient-Informed GFlowNets. Authors: Zhen Liu, Tim Z. Xiao, Weiyang Liu, Yoshua Bengio, Dinghuai Zhang. Title and author order agree across the project page, arXiv and the PI’s publication record.
+- Venue: ICLR 2025, confirmed by the [official proceedings](https://proceedings.iclr.cc/paper_files/paper/2025/hash/ec52962a55a83c3d860b5c9b7338422b-Abstract-Conference.html). The year follows the conference publication; the original preprint appeared in December 2024. Sources checked 11 October 2026.
+- The summary describes reward-gradient-based diffusion alignment with diversity and prior preservation, without adding performance claims.
+
+The previews are complete, uncropped figures optimized to 1,200-pixel-wide WebP files. The carousel order is BesiegeField, EVA, DrPO, PAct, VGG-Flow, ASAP, Nabla-GFlowNet, G-Shell, MeshDiffusion. All project links retain their original external addresses.
 
 Figures are reproduced as research previews linking directly to the corresponding project sites. Original research images remain credited to their respective authors; no broad asset license is asserted here. Descriptions are concise paraphrases, not new performance claims. Existing project websites retain their original URLs; none has been migrated to the GenLab domain.

@@ -65,8 +65,8 @@
     "year": 2026,
     "featured": true,
     "order": 2,
-    "image": "/images/drpo.webp",
-    "imageAlt": "Matched text-to-image prompts before and after DrPO preference optimization of SDXL-Turbo.",
+    "image": "/images/drpo-method.webp",
+    "imageAlt": "DrPO method overview showing preference and reference drift in feature space, with generated samples across finetuning steps.",
     "imageFit": "contain",
     "links": [
       {
@@ -164,30 +164,30 @@
     ]
   },
   {
-    "id": "meshdiffusion",
-    "name": "MeshDiffusion",
-    "title": "MeshDiffusion: Score-based Generative 3D Mesh Modeling",
-    "summary": "Generating detailed 3D meshes directly with diffusion models.",
-    "authors": "Zhen Liu, Yao Feng, Michael J. Black, Derek Nowrouzezahrai, Liam Paull, Weiyang Liu",
-    "venue": "ICLR · Spotlight",
-    "year": 2023,
+    "id": "nabla-gflownet",
+    "name": "Nabla-GFlowNet",
+    "title": "Efficient Diversity-Preserving Diffusion Alignment via Gradient-Informed GFlowNets",
+    "summary": "Using reward gradients to align diffusion models while preserving diversity and pretrained knowledge.",
+    "authors": "Zhen Liu, Tim Z. Xiao, Weiyang Liu, Yoshua Bengio, Dinghuai Zhang",
+    "venue": "ICLR",
+    "year": 2025,
     "featured": true,
     "order": 6,
-    "image": "/images/meshdiffusion.webp",
-    "imageAlt": "MeshDiffusion generates diverse meshes of chairs, cars, and airplanes, with examples of added textures.",
+    "image": "/images/nabla-gflownet.webp",
+    "imageAlt": "Nabla-GFlowNet method diagrams showing gradient-informed diffusion alignment, alongside diverse generated animals across finetuning steps.",
     "imageFit": "contain",
     "links": [
       {
         "label": "Project",
-        "url": "https://meshdiffusion.github.io/"
+        "url": "https://nabla-gfn.github.io/"
       },
       {
         "label": "Paper",
-        "url": "https://arxiv.org/abs/2303.08133"
+        "url": "https://arxiv.org/abs/2412.07775"
       },
       {
         "label": "Code",
-        "url": "https://github.com/lzzcd001/MeshDiffusion/"
+        "url": "https://github.com/lzzcd001/nabla-gfn"
       }
     ]
   },
@@ -216,6 +216,34 @@
       {
         "label": "Code",
         "url": "https://github.com/lzzcd001/GShell/"
+      }
+    ]
+  },
+  {
+    "id": "meshdiffusion",
+    "name": "MeshDiffusion",
+    "title": "MeshDiffusion: Score-based Generative 3D Mesh Modeling",
+    "summary": "Generating detailed 3D meshes directly with diffusion models.",
+    "authors": "Zhen Liu, Yao Feng, Michael J. Black, Derek Nowrouzezahrai, Liam Paull, Weiyang Liu",
+    "venue": "ICLR · Spotlight",
+    "year": 2023,
+    "featured": true,
+    "order": 8,
+    "image": "/images/meshdiffusion.webp",
+    "imageAlt": "MeshDiffusion generates diverse meshes of chairs, cars, and airplanes, with examples of added textures.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://meshdiffusion.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2303.08133"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/lzzcd001/MeshDiffusion/"
       }
     ]
   }

@@ -92,5 +92,13 @@
     "group": "Visitors and research assistants",
     "order": 9,
     "links": []
+  },
+  {
+    "id": "zixuan-wang",
+    "name": "Zixuan Wang",
+    "role": "Undergraduate",
+    "group": "Visitors and research assistants",
+    "order": 10,
+    "links": []
   }
 ]

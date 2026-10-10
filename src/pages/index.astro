@@ -4,6 +4,11 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import conceptArt from '../assets/concept-room.png';
 const people = (await getCollection('people')).sort((a, b) => a.data.order - b.data.order);
+const teamGroups = [
+  { id: 'faculty', label: 'Faculty', members: people.filter(({ data }) => data.group === 'Faculty') },
+  { id: 'core', label: 'Core members', members: people.filter(({ data }) => data.group === 'Students') },
+  { id: 'visitors', label: 'Research assistants & visiting students', members: people.filter(({ data }) => ['Research assistants', 'Visitors and research assistants'].includes(data.group)) },
+].filter(group => group.members.length > 0);
 const collaborators = (await getCollection('collaborators')).sort((a, b) => a.data.order - b.data.order);
 const publications = (await getCollection('publications', ({ data }) => data.featured)).sort((a,b) => a.data.order - b.data.order);
 ---
@@ -47,12 +52,17 @@ const publications = (await getCollection('publications', ({ data }) => data.fea
   </section>}
   <section class="people-section" id="team" aria-labelledby="team-title">
     <h2 id="team-title">Team</h2>
-    <ul class="people-list">
-      {people.map(({ data }) => <li>
-        <h3 class="person-name">{data.links[0] ? <a href={data.links[0].url} target="_blank" rel="noopener">{data.name}</a> : data.name}</h3>
-        <p class="person-detail">{data.role}</p>
-      </li>)}
-    </ul>
+    <div class="team-groups">
+      {teamGroups.map(group => <section class={`team-group team-${group.id}`} aria-labelledby={`team-${group.id}-title`}>
+        <h3 class="team-group-title" id={`team-${group.id}-title`}>{group.label}</h3>
+        <ul class="people-list">
+          {group.members.map(({ data }) => <li>
+            <p class="person-name">{data.links[0] ? <a href={data.links[0].url} target="_blank" rel="noopener">{data.name}</a> : data.name}</p>
+            <p class="person-detail">{data.role}</p>
+          </li>)}
+        </ul>
+      </section>)}
+    </div>
   </section>
   <section class="people-section" id="collaborators" aria-labelledby="collaborators-title">
     <h2 id="collaborators-title">External collaborators</h2>
