@@ -7,7 +7,7 @@ Checked 10 October 2026. Featured projects were selected and ordered by the lab 
 - Official university profile: https://sds.cuhk.edu.cn/en/teacher/1951
 - Personal homepage and current recruitment guidance: https://itszhen.com/
 - Verified name/title: Zhen Liu, Assistant Professor, School of Data Science, The Chinese University of Hong Kong, Shenzhen.
-- Email: zhenliu@cuhk.edu.cn. The prototype does not advertise unconfigured `contact@thegenlab.ai` forwarding.
+- Email: zhenliu@cuhk.edu.cn. The homepage does not advertise unconfigured `contact@thegenlab.ai` forwarding.
 
 ## Current team
 
@@ -16,7 +16,7 @@ Checked 10 October 2026. Featured projects were selected and ordered by the lab 
 - PhD students: Wenqian Zhang and Zhou Jiang.
 - MPhil student: Jinming Ren.
 - The source's combined “Visiting students & research assistants” group includes master's students Yaocheng Guo and Xiangwei Shen, and undergraduates Zihao Zhou, Zhuoran Xia, Jinlong Yang, and Zigeng Xu. These six entries retain the combined group in the content data; their compact visible labels describe their degree level without assigning an unverified appointment type.
-- Wenqian Zhang's confirmed personal website: https://godheritage.github.io/AboutMe/. No other student links or biographies have been added.
+- Wenqian Zhang's confirmed personal website: https://godheritage.github.io/AboutMe/. No other student links have been inferred.
 - The current team contains ten people, including the PI. Alumni Qingming Liu, Yuping Zheng, and Bao Li are excluded from this current roster. Zhou Jiang also appears in the source's alumni section for an earlier undergraduate role and is included only once, as a current PhD student.
 
 ## External collaborators
@@ -97,6 +97,6 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Venue: ICLR 2024 Oral, verified on the project page, official code repository and PI's record. The publication year is 2024; the original preprint appeared in 2023.
 - Title and author order match the paper and PI's record. The summary covers both reconstruction and generation of closed and open surfaces.
 
-New previews are complete, uncropped figures optimized to 1,200-pixel-wide WebP files. The carousel order is BesiegeField, EVA, DrPO, PAct, VGG-Flow, ASAP, MeshDiffusion, G-Shell. All project links retain their original external addresses.
+The previews are complete, uncropped figures optimized to 1,200-pixel-wide WebP files. The carousel order is BesiegeField, EVA, DrPO, PAct, VGG-Flow, ASAP, MeshDiffusion, G-Shell. All project links retain their original external addresses.
 
-Figures are reproduced as research previews linking directly to the corresponding project sites. Original research images remain credited to their respective authors; no broad asset license is asserted here. Descriptions are concise paraphrases, not new performance claims. No project website has been migrated to the GenLab domain as part of this homepage prototype.
+Figures are reproduced as research previews linking directly to the corresponding project sites. Original research images remain credited to their respective authors; no broad asset license is asserted here. Descriptions are concise paraphrases, not new performance claims. Existing project websites retain their original URLs; none has been migrated to the GenLab domain.

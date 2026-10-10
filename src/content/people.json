@@ -4,8 +4,6 @@
     "name": "Zhen Liu",
     "role": "Principal Investigator",
     "group": "Faculty",
-    "initials": "ZL",
-    "bio": "Zhen Liu is an Assistant Professor in the School of Data Science at The Chinese University of Hong Kong, Shenzhen. His research explores generative AI, 3D reasoning and generation, spatial and physical intelligence, and foundation model adaptation.",
     "order": 0,
     "links": [
       {
@@ -23,8 +21,6 @@
     "name": "Wenqian Zhang",
     "role": "PhD student",
     "group": "Students",
-    "initials": "WZ",
-    "bio": "",
     "order": 1,
     "links": [
       {
@@ -38,8 +34,6 @@
     "name": "Zhou Jiang",
     "role": "PhD student",
     "group": "Students",
-    "initials": "ZJ",
-    "bio": "",
     "order": 2,
     "links": []
   },
@@ -48,8 +42,6 @@
     "name": "Jinming Ren",
     "role": "MPhil student",
     "group": "Students",
-    "initials": "JR",
-    "bio": "",
     "order": 3,
     "links": []
   },
@@ -58,8 +50,6 @@
     "name": "Yaocheng Guo",
     "role": "Master’s student",
     "group": "Visitors and research assistants",
-    "initials": "YG",
-    "bio": "",
     "order": 4,
     "links": []
   },
@@ -68,8 +58,6 @@
     "name": "Xiangwei Shen",
     "role": "Master’s student",
     "group": "Visitors and research assistants",
-    "initials": "XS",
-    "bio": "",
     "order": 5,
     "links": []
   },
@@ -78,8 +66,6 @@
     "name": "Zihao Zhou",
     "role": "Undergraduate",
     "group": "Visitors and research assistants",
-    "initials": "ZZ",
-    "bio": "",
     "order": 6,
     "links": []
   },
@@ -88,8 +74,6 @@
     "name": "Zhuoran Xia",
     "role": "Undergraduate",
     "group": "Visitors and research assistants",
-    "initials": "ZX",
-    "bio": "",
     "order": 7,
     "links": []
   },
@@ -98,8 +82,6 @@
     "name": "Jinlong Yang",
     "role": "Undergraduate",
     "group": "Visitors and research assistants",
-    "initials": "JY",
-    "bio": "",
     "order": 8,
     "links": []
   },
@@ -108,8 +90,6 @@
     "name": "Zigeng Xu",
     "role": "Undergraduate",
     "group": "Visitors and research assistants",
-    "initials": "ZX",
-    "bio": "",
     "order": 9,
     "links": []
   }

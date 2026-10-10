@@ -2,7 +2,7 @@
 
 A compact academic homepage for **GenLab**, led by Prof. Zhen Liu. Built with Astro and deployed as a static site to GitHub Pages at **https://thegenlab.ai**.
 
-This is the **one shared website repository** for the GenLab homepage and all new project websites. The homepage introduces the lab, presents selected research in a horizontal carousel, and lists the team and external collaborators. New project website source lives in `src/projects/<project>/`, with explicit routes in `src/pages/<project>/`, and appears at `thegenlab.ai/<project>/`. Research implementations live directly under the GitHub organization in separate repositories such as `thegenlab/<project>`, with Pages disabled. The `src/projects/` folders contain website code and assets only. Existing project websites and their current URLs remain unchanged; the PI’s personal site remains the full research record.
+This is the **one shared website repository** for the GenLab homepage and all new project websites. The homepage introduces the lab, presents selected research in a horizontal carousel, and lists the team and external collaborators. New project website source lives in `src/projects/<project>/`, with explicit routes in `src/pages/<project>/`, and appears at `thegenlab.ai/<project>/`. Research implementations live directly under the GitHub organization in separate repositories such as `thegenlab/<project>`, with Pages disabled. Create these folders when adding the first new project website; they contain website code and assets only. Existing project websites and their current URLs remain unchanged; the PI’s personal site remains the full research record.
 
 ## Development
 
@@ -38,11 +38,9 @@ Edit these files without changing the layout:
 
 Every content entry has a unique `id`. Astro validates entries at build time. For projects, `featured: true` includes an entry in Selected research; lower `order` values appear first. The carousel supports more than three projects without changing the layout. Use distinct order values for predictable placement. The first link is the project destination; remaining links typically point to the paper and code. Homepage carousel images belong in `public/images/` and need descriptive `imageAlt` text. `imageFit` can be `contain` (show the whole figure) or `cover` (fill the preview).
 
-The compact Team section reads `people.json` in ascending `order`. The initial roster contains the ten current members listed on the PI’s personal website; add or update members once their names, roles, and details have been confirmed. Keep the existing `group`, `initials`, and `bio` fields when editing a person, as these remain part of the content schema. Use verified personal or institutional links.
+The compact Team section reads `people.json` in ascending `order`. The initial roster contains the ten current members listed on the PI’s personal website; add or update members once their names, roles, and details have been confirmed. Keep the `group` field consistent with the person’s confirmed role. Use verified personal or institutional links.
 
 External collaborators are maintained separately in `collaborators.json` and sorted by `order`. Each entry needs `id`, `name`, and `affiliation`; use `order` to set its position. The optional `links` array uses `{ "label": "Personal website", "url": "https://…" }` entries. Omit it when no link has been confirmed. The initial four names and affiliations were supplied by the lab owner.
-
-The `news.json` file and its schema are retained, but news is not currently rendered on the homepage. Editing it does not add a visible announcement.
 
 After updating content, run `npm run verify` and inspect desktop and mobile previews. When adding projects, check that the final carousel item is reachable and its links work. Record sources for new figures and factual project details in `docs/CONTENT-SOURCES.md`.
 
@@ -52,11 +50,9 @@ After updating content, run `npm run verify` and inspect desktop and mobile prev
 
 **Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. See [deployment status and DNS records](docs/DEPLOYMENT.md).
 
-For a new project, give its website a private layout, components and assets in `src/projects/<project>/`, and add thin Astro page files in `src/pages/<project>/` to define its URLs. One Astro build publishes everything. Reserve `public/` for files that need unchanged contents or stable filenames, not authored page source. No per-project website repository, DNS record, CNAME, custom-domain setting or deployment workflow is needed. See the [project website guide](docs/PROJECTS.md) for the folder structure and a short setup recipe.
+For a new project, create its website source and assets in `src/projects/<project>/`, and add thin Astro page files in `src/pages/<project>/` to define its URLs. Each website can have its own design; add shared layout or component files only when useful. One Astro build publishes everything. Reserve `public/` for files that need unchanged contents or stable filenames, not authored page source. No per-project website repository, DNS record, CNAME, custom-domain setting or deployment workflow is needed. See the [project website guide](docs/PROJECTS.md) for the folder structure and a short setup recipe.
 
 Keep the research implementation in `thegenlab/<project>` and link to it from the project page. **Leave GitHub Pages disabled in code repositories** so a separate project Pages site cannot override the shared website's route. Existing research repositories and project URLs are not being migrated.
-
-The fake example uses `src/projects/project-test/` and routes under `src/pages/project-test/`, including a nested page. It retains its test labels and `noindex, nofollow` and must not appear in Selected research. Its obsolete separate repository is archived with Pages removed, its workflow disabled and template setting off. Dated live hosting checks are recorded in the [deployment guide](docs/DEPLOYMENT.md#shared-fake-project-test).
 
 ## Design and assets
 

@@ -4,7 +4,7 @@
 
 Research code belongs directly under the GitHub organization in separate repositories such as `thegenlab/<project>`, with **Pages disabled**. Project pages link to those code repositories. Existing project websites and their current URLs remain unchanged.
 
-**Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. On **11 October 2026**, the fake example was deployed from this shared repository and passed live HTTPS checks after the old standalone Pages site was disabled.
+**Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled.
 
 ## Current deployment
 
@@ -18,8 +18,6 @@ Research code belongs directly under the GitHub organization in separate reposit
 | Cloudflare website records | Four GitHub Pages apex A records and `www` CNAME; DNS only; TTL 300 seconds |
 | HTTPS certificate | Approved for `thegenlab.ai` and `www.thegenlab.ai`; expires 8 January 2027 |
 | Enforce HTTPS | Enabled |
-| Shared project test URL | `https://thegenlab.ai/project-test/`; served by this shared website repository |
-| Old separate test repository | Archived recoverably; Pages removed, deployment workflow disabled, template setting off |
 
 ## Publish website updates
 
@@ -78,21 +76,13 @@ The website setup does not create email mailboxes. Only publish `contact@thegenl
 
 ## New project websites in this repository
 
-Use native Astro routes: `src/pages/<project>/index.astro` imports that website’s landing page from `src/projects/<project>/`. Nested page files define nested URLs. Each website owns its layout, CSS and assets; all websites share the existing root dependencies, build and deployment. See the [project website guide](PROJECTS.md) for the structure and setup recipe. Reserve `public/` for files that must be served unchanged at stable URLs, not authored page source.
+Use native Astro routes: `src/pages/<project>/index.astro` imports that website’s landing page from `src/projects/<project>/`. Nested page files define nested URLs. Each website owns its design and assets; all websites share the existing root dependencies, build and deployment. Create project source and route folders when adding a real project; no empty scaffold is required. See the [project website guide](PROJECTS.md) for the structure and setup recipe. Reserve `public/` for files that must be served unchanged at stable URLs, not authored page source.
 
 Keep the root Astro `base` unset and the existing `thegenlab.ai` custom domain on this repository. A project needs no new DNS record, CNAME, custom domain, routing registry or deployment workflow. Run `npm run verify`, inspect the actual `/<project>/` paths locally, then publish through **Deploy GenLab** and check the live pages and assets.
 
 Research code remains in a separate repository directly under `thegenlab`, for example `thegenlab/project-name`; the website source remains here. **Keep Pages disabled in research-code repositories.** A separately published project Pages site can claim the same URL path and shadow the shared website’s route. Link to the code repository from the website. Existing external project sites keep their current URLs.
 
 After a real project website is verified, add its URL and code link to `src/content/publications.json` if it should appear in Selected research.
-
-### Shared fake project test
-
-The example’s website source is `src/projects/project-test/`, with explicit landing and nested routes in `src/pages/project-test/`. Keep its visible test labels and `noindex, nofollow` metadata. It is not a research project and must not appear in Selected research.
-
-**Last recorded live hosting check — 11 October 2026:** [shared deployment run 38066741473](https://github.com/thegenlab/thegenlab.github.io/actions/runs/38066741473), commit `8dff97d8806ec128fccb31ebcb6f680e8678c4b3`, served the homepage, test landing page, nested page, stylesheet and SVG over valid HTTPS. Each matched that deployment’s output after Pages was removed from the old separate test repository. This records the shared domain and path setup; subsequent source changes require the publish checks above.
-
-The obsolete `thegenlab/project-test` repository is archived recoverably, with Pages removed, its deployment workflow disabled and its template setting off. All project website changes belong in this shared repository.
 
 ## Workflow versions
 
