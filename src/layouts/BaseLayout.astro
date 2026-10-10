@@ -34,7 +34,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       </header>
       <main id="main" tabindex="-1"><slot /></main>
       <footer class="footer">
-        <p>Led by <a href={site.homepage} target="_blank" rel="noopener">Zhen Liu</a></p>
         <nav aria-label="Contact"><a href={`mailto:${site.email}`}>Email</a><a href="https://github.com/thegenlab" target="_blank" rel="noopener">GitHub ↗</a></nav>
       </footer>
     </div>
