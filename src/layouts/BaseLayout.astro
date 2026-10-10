@@ -30,12 +30,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <div class="page">
       <header class="header">
         <a class="brand" href="/" aria-label="GenLab home">Gen<span>Lab</span></a>
-        <nav aria-label="Lab links"><a href="https://github.com/thegenlab" target="_blank" rel="noopener">GitHub ↗</a><a href={`mailto:${site.email}`}>Contact ↗</a></nav>
+        <nav aria-label="Lab links"><a href="https://github.com/thegenlab" target="_blank" rel="noopener">GitHub ↗</a></nav>
       </header>
       <main id="main" tabindex="-1"><slot /></main>
-      <footer class="footer">
-        <nav aria-label="Contact"><a href={`mailto:${site.email}`}>Email</a><a href="https://github.com/thegenlab" target="_blank" rel="noopener">GitHub ↗</a></nav>
-      </footer>
     </div>
   </body>
 </html>
