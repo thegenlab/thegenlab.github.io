@@ -2,7 +2,52 @@
 
 A compact academic homepage for **GenLab**, led by Prof. Zhen Liu. Built with Astro and deployed as a static site to GitHub Pages at **https://thegenlab.ai**.
 
-This is the **one shared website repository** for the GenLab homepage and all new project websites. The homepage introduces the lab, presents selected research in a horizontal carousel, and lists the team and external collaborators. New project website source lives in `src/projects/<project>/`, with explicit routes in `src/pages/<project>/`, and appears at `thegenlab.ai/<project>/`. Research implementations live directly under the GitHub organization in separate repositories such as `thegenlab/<project>`, with Pages disabled. Create these folders when adding the first new project website; they contain website code and assets only. Existing project websites and their current URLs remain unchanged; the PI’s personal site remains the full research record.
+This is the **one shared website repository** for the GenLab homepage and all new project websites. The homepage introduces the lab, presents selected research in a horizontal carousel, and lists the team and external collaborators. New project website source lives in `src/projects/<project>/`, with explicit routes in `src/pages/<project>/`, and appears at `thegenlab.ai/<project>/`. Research implementations live directly under the GitHub organization in separate repositories such as `thegenlab/<project>`, with Pages disabled. The tracked `src/projects/` directory contains website code and assets only; research code stays in its own repository. Existing project websites and their current URLs remain unchanged; the PI’s personal site remains the full research record.
+
+## Repository structure
+
+```text
+src/
+  pages/
+    index.astro                 # Lab homepage
+    404.astro                   # Not-found page
+  projects/
+    README.md                   # Start here for new project websites
+  content/                      # Selected research, people, collaborators
+  assets/                       # Homepage illustration source
+  layouts/                      # Homepage layout
+  styles/                       # Homepage styles
+public/                         # Files served unchanged: fonts, images, downloads
+scripts/                        # Build verification
+docs/                           # Project setup, deployment, content sources
+```
+
+The existing [projects directory](src/projects/) is the home for new project website source. Astro's `src/pages/` directory defines the URLs; `src/projects/` holds the corresponding page implementations and assets.
+
+## Add a project website
+
+For a new page at `https://thegenlab.ai/projectA/`, add:
+
+```text
+src/
+  pages/projectA/index.astro    # Defines /projectA/
+  projects/projectA/
+    Home.astro                 # Actual webpage, with its own design
+    assets/                    # Optional figures, images and videos
+```
+
+Only `Home.astro` and the route file are required. The route file `src/pages/projectA/index.astro` contains:
+
+```astro
+---
+import Home from '../../projects/projectA/Home.astro';
+---
+<Home />
+```
+
+Put the page content and design in `Home.astro`. Add a separate stylesheet, layout or components when useful. For `/projectA/demo/`, add `src/projects/projectA/Demo.astro` and a route at `src/pages/projectA/demo/index.astro`. Follow the [complete project website guide](docs/PROJECTS.md) for a starter page, asset handling and nested routes. These paths are examples; no example project is published.
+
+The research implementation belongs in the separate GitHub repository **`thegenlab/projectA`**, with Pages disabled. All website files stay here. Run `npm run verify` and preview the page; pushing to `main` uses the existing deployment. No new DNS record or workflow is needed.
 
 ## Development
 

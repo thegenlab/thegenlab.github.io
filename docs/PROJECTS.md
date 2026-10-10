@@ -8,7 +8,7 @@ All new project websites belong in **`thegenlab/thegenlab.github.io`**, alongsid
 | A new project website | Same website repository → `src/projects/project-name/` and `src/pages/project-name/` | `https://thegenlab.ai/project-name/` |
 | Research implementation | Separate repository `thegenlab/project-name` | GitHub repository; Pages disabled |
 
-Existing external project websites keep their current URLs. Adding a new website should not change the frozen homepage design or another project’s layout. Create the project source folders with the first real new website; an empty `src/projects/` folder does not need to be tracked in Git.
+Existing external project websites keep their current URLs. Adding a new website should not change the frozen homepage design or another project’s layout. The [tracked `src/projects/` directory](../src/projects/) contains its own README. Add each new website in a subfolder there, together with its route files under `src/pages/`. No example project is published.
 
 ## Architecture
 
