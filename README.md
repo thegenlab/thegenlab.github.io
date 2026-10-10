@@ -2,7 +2,7 @@
 
 A compact academic homepage for **GenLab**, led by Prof. Zhen Liu. Built with Astro and deployed as a static site to GitHub Pages at **https://thegenlab.ai**.
 
-The homepage introduces the lab with a conceptual illustration, presents selected research in a horizontal carousel, and lists the team and external collaborators. Each new project uses a dedicated website repository under **thegenlab**, with the site at `thegenlab.ai/project-name/`. Research code lives in a separate repository and is linked from the project website; the PI’s personal site remains the full research record. Existing project websites and their current URLs remain unchanged.
+This is the **one shared website repository** for the GenLab homepage and all new project websites. The homepage introduces the lab, presents selected research in a horizontal carousel, and lists the team and external collaborators. New project pages live in `public/<project>/` and appear at `thegenlab.ai/<project>/`. Research code lives separately in `thegenlab/<project>`, with Pages disabled. Existing project websites and their current URLs remain unchanged; the PI’s personal site remains the full research record.
 
 ## Development
 
@@ -33,6 +33,7 @@ Edit these files without changing the layout:
 | External collaborators | `src/content/collaborators.json` |
 | Lab details | `src/data/site.ts` |
 | Homepage introduction | `src/pages/index.astro` |
+| New project websites | `public/<project>/` |
 
 Every content entry has a unique `id`. Astro validates entries at build time. For projects, `featured: true` includes an entry in Selected research; lower `order` values appear first. The carousel supports more than three projects without changing the layout. Use distinct order values for predictable placement. The first link is the project destination; remaining links typically point to the paper and code. Images belong in `public/images/` and need descriptive `imageAlt` text. `imageFit` can be `contain` (show the whole figure) or `cover` (fill the preview).
 
@@ -46,19 +47,15 @@ After updating content, run `npm run verify` and inspect desktop and mobile prev
 
 ## Hosting
 
-The homepage was published from `main` commit `4e7bf6c` by the successful [Deploy GenLab run](https://github.com/thegenlab/thegenlab.github.io/actions/runs/38060611009). GitHub Pages uses **GitHub Actions** (`build_type: workflow`) and the repository's custom-domain setting is `thegenlab.ai`. Organization domain ownership is verified, and Cloudflare's apex and `www` records are configured.
+[thegenlab/thegenlab.github.io](https://github.com/thegenlab/thegenlab.github.io) publishes the homepage and all new project websites through the existing Astro/GitHub Actions workflow. Pull requests are checked; pushes to `main` build the shared site and publish `dist/` to GitHub Pages. The repository's custom domain is `thegenlab.ai`, organization ownership is verified, and Cloudflare's apex and `www` records are configured. No personal access token or Cloudflare API token is needed by the workflows.
 
-**Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. The website-only starter was deployed and verified over HTTPS on **11 October 2026**. See [deployment status, DNS records, and project setup](docs/DEPLOYMENT.md).
+**Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. See [deployment status and DNS records](docs/DEPLOYMENT.md).
 
-The workflow validates pull requests and publishes pushes to `main`. The Pages custom-domain setting is authoritative for this Actions deployment; this repository has no `public/CNAME` file. No personal access token or Cloudflare API token is needed by the workflows. No backend, external font service, tracking, or form service is needed.
+For a new project, add standalone HTML and assets to `public/<project>/`, starting with `index.html`. Astro copies these files unchanged into `dist/<project>/`, producing `https://thegenlab.ai/<project>/`. Keep the shared Astro `base` unset, use links and asset paths that work within the project's directory, and deploy through this repository. No per-project website repository, DNS record, CNAME, or custom-domain setting is needed.
 
-Use the custom domain for **new website repositories**. A public Pages site in `thegenlab/project-name` inherits `https://thegenlab.ai/project-name/`; leave that website repository's Custom domain field empty and do not add a project `CNAME` file. Subpaths need no additional DNS records. Configure each website's links and assets for its repository path. Existing projects are not being migrated, and their homepage links should keep their current destinations.
+Keep the research implementation in `thegenlab/<project>` and link to it from the project page. **Leave GitHub Pages disabled in code repositories** so a separate project Pages site cannot override the shared website's route. Existing research repositories and project URLs are not being migrated.
 
-The [project-test repository](https://github.com/thegenlab/project-test) is a **website-only starter** with **Template repository** enabled. Its Astro app is at the repository root: `src/`, `public/`, `package.json`, and `project.config.mjs`. The `.github/workflows/website.yml` workflow builds from that root, checks pull requests, and publishes only `dist/` from `main`; it also supports manual runs. `PROJECT_SLUG` comes from the website repository name, so each new website receives its own URL prefix.
-
-Create a new **public website repository** under **thegenlab** using that template, enable **Pages → GitHub Actions**, and leave **Custom domain** empty. Reserve `thegenlab/project-name` for the website to obtain the clean `/project-name/` address. The research-code repository can have any owner and name. If both repositories are in **thegenlab**, they need different names; `thegenlab/project-name-code` is one possible code-repository name, not a repository created by this setup.
-
-The starter retains fake-project labels and `noindex`; replace its sample content before publishing a real project. It is not a publication and should not appear in Selected research. The successful [Project website run](https://github.com/thegenlab/project-test/actions/runs/38066066802) deployed commit `ed7c84f` on **11 October 2026**. Strict HTTPS checks confirmed the landing page, nested page, stylesheet and SVG match `dist/` byte for byte; both pages retain `noindex, nofollow`, and repository README/package files return 404. See the [starter setup and verification steps](docs/DEPLOYMENT.md#new-project-websites-under-the-same-domain).
+The fake example is being moved into `public/project-test/`, including its nested page, stylesheet and SVG. It retains its test labels and `noindex` and must not appear in Selected research. **Shared deployment and verification are pending.** After that succeeds, the old separate `thegenlab/project-test` repository will have its workflow, Pages and template setting disabled and will be archived recoverably. See [new project setup](docs/DEPLOYMENT.md#new-project-websites-in-this-repository).
 
 ## Design and assets
 
@@ -66,4 +63,4 @@ The homepage uses locally served **IBM Plex Sans** from `public/fonts/plex-sans.
 
 Project figures come from the linked research websites; their source credits and factual verification are recorded in [content sources](docs/CONTENT-SOURCES.md). These research assets retain their authors’ rights. Keep the Team and External collaborators sections compact, using names, roles or affiliations, and confirmed links.
 
-The carousel uses native horizontal scrolling, with JavaScript adding previous/next buttons and keyboard navigation. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Avoid adding homepage routes that collide with separately hosted project repositories.
+The carousel uses native horizontal scrolling, with JavaScript adding previous/next buttons and keyboard navigation. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Give each project its own directory, and avoid defining the same route in both `src/pages/` and `public/`.
