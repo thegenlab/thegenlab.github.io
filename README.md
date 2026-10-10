@@ -55,7 +55,7 @@ For a new project, add standalone HTML and assets to `public/<project>/`, starti
 
 Keep the research implementation in `thegenlab/<project>` and link to it from the project page. **Leave GitHub Pages disabled in code repositories** so a separate project Pages site cannot override the shared website's route. Existing research repositories and project URLs are not being migrated.
 
-The fake example is being moved into `public/project-test/`, including its nested page, stylesheet and SVG. It retains its test labels and `noindex` and must not appear in Selected research. **Shared deployment and verification are pending.** After that succeeds, the old separate `thegenlab/project-test` repository will have its workflow, Pages and template setting disabled and will be archived recoverably. See [new project setup](docs/DEPLOYMENT.md#new-project-websites-in-this-repository).
+The fake example lives in `public/project-test/`, including its nested page, stylesheet and SVG. It retains its test labels and `noindex, nofollow` and must not appear in Selected research. On **11 October 2026**, the shared deployment and live HTTPS checks passed after the old separate test site's Pages configuration was removed. That obsolete repository is now archived, with its workflow disabled and template setting off. See [new project setup](docs/DEPLOYMENT.md#new-project-websites-in-this-repository).
 
 ## Design and assets
 

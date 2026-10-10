@@ -4,7 +4,7 @@
 
 Research code belongs in separate `thegenlab/<project>` repositories with **Pages disabled**. Project pages link to those code repositories. Existing project websites and their current URLs remain unchanged.
 
-**Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. The fake example is now being moved into this shared website repository; its new deployment and verification are pending.
+**Verified on 10 October 2026:** the homepage and its assets loaded over HTTPS with valid certificates, and `https://www.thegenlab.ai/` redirected to the apex. Enforce HTTPS is enabled. On **11 October 2026**, the fake example was deployed from this shared repository and passed live HTTPS checks after the old standalone Pages site was disabled.
 
 ## Current deployment
 
@@ -18,8 +18,8 @@ Research code belongs in separate `thegenlab/<project>` repositories with **Page
 | Cloudflare website records | Four GitHub Pages apex A records and `www` CNAME; DNS only; TTL 300 seconds |
 | HTTPS certificate | Approved for `thegenlab.ai` and `www.thegenlab.ai`; expires 8 January 2027 |
 | Enforce HTTPS | Enabled |
-| Shared project test | Moving into `public/project-test/`; shared deployment and live verification pending |
-| Old separate test repository | Retirement pending shared deployment success; then disable its workflow, Pages and template setting, and archive recoverably |
+| Shared project test | `public/project-test/` → `https://thegenlab.ai/project-test/`; verified from the shared deployment |
+| Old separate test repository | Archived recoverably; Pages removed, deployment workflow disabled, template setting off |
 
 ## Publish website updates
 
@@ -105,11 +105,13 @@ Research-code changes remain separate from website changes. To update a project 
 
 ### Shared fake project test
 
-The fake example is being placed in `public/project-test/` with `index.html`, `styles.css`, `assets/path-check.svg`, and `nested/index.html`. Its intended address remains `https://thegenlab.ai/project-test/`. Keep its visible test labels and `noindex, nofollow` metadata; it is not a research project and should not appear in Selected research.
+The fake example lives in `public/project-test/` with `index.html`, `styles.css`, `assets/path-check.svg`, and `nested/index.html`. Its address is `https://thegenlab.ai/project-test/`. Keep its visible test labels and `noindex, nofollow` metadata; it is not a research project and should not appear in Selected research.
 
-**Status: shared deployment and verification are pending.** After the shared workflow succeeds, disable the old separate `thegenlab/project-test` repository's deployment workflow, GitHub Pages, and template setting, then archive that repository recoverably. Verify the shared route after Pages is disabled in the old repository, so the old deployment cannot mask a routing problem.
+The successful [shared deployment](https://github.com/thegenlab/thegenlab.github.io/actions/runs/38066741473) published commit `8dff97d8806ec128fccb31ebcb6f680e8678c4b3` on **11 October 2026**. The build validated four HTML pages and 26 local links/assets; the homepage output was unchanged.
 
-Confirm the shared landing page, nested page, stylesheet and SVG return 200 over verified HTTPS and match `dist/project-test/`. Check the nested links, retained `noindex` metadata, and the homepage. Record the successful shared workflow run and commit here once confirmed.
+After removing Pages from the old `thegenlab/project-test` repository, normal HTTPS URLs for the homepage, test landing page, nested page, CSS and SVG all returned 200 and matched this repository's `dist/` files byte for byte. Both test pages contain the shared-repository marker and `noindex, nofollow`. The test's README URL returns 404. This verifies that the shared website serves the project path even while a same-name repository exists with Pages disabled.
+
+The obsolete separate test repository is archived with `is_template: false`, `has_pages: false`, and its deployment workflow disabled. Its README points here. Its history is retained for recovery; all future project website changes belong in this shared repository.
 
 ## Workflow versions
 
