@@ -1,0 +1,26 @@
+[
+  {
+    "id": "weiyang-liu",
+    "name": "Weiyang Liu",
+    "affiliation": "CUHK",
+    "order": 0
+  },
+  {
+    "id": "yandong-wen",
+    "name": "Yandong Wen",
+    "affiliation": "Westlake U",
+    "order": 1
+  },
+  {
+    "id": "yuliang-xiu",
+    "name": "Yuliang Xiu",
+    "affiliation": "Westlake U",
+    "order": 2
+  },
+  {
+    "id": "jie-fu",
+    "name": "Jie Fu",
+    "affiliation": "iQuestLab",
+    "order": 3
+  }
+]

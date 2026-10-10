@@ -3,7 +3,7 @@
     "id": "pact", "name": "PAct", "title": "Part-Decomposed Single-View Articulated Object Generation",
     "summary": "From a single image to a 3D object with parts that move.",
     "authors": "Qingming Liu, Xinyue Yao, Shuyuan Zhang, Yueci Deng, Guiliang Liu, Zhen Liu, Kui Jia",
-    "venue": "SIGGRAPH Asia · Conditional acceptance", "year": 2026, "featured": true, "order": 0,
+    "venue": "SIGGRAPH Asia", "year": 2026, "featured": true, "order": 0,
     "image": "/images/pact.webp", "imageAlt": "PAct generates articulated furniture and appliances with movable parts.", "imageFit": "contain",
     "links": [{"label": "Project", "url": "https://pact-project.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2602.14965"}, {"label": "Code", "url": "https://github.com/Mobiuslqm/PAct"}]
   },

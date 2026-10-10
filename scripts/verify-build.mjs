@@ -9,7 +9,7 @@ assert.match(html, /<html lang="en"/);
 assert.match(html, /<title>GenLab/);
 assert.match(html, /rel="canonical" href="https:\/\/thegenlab.ai\/"/);
 assert.equal((html.match(/<h1\b/g) || []).length, 1, 'Homepage needs one main heading');
-for (const id of ['main', 'work', 'about']) assert.match(html, new RegExp(`id="${id}"`));
+for (const id of ['main', 'work', 'research-track', 'team', 'collaborators']) assert.match(html, new RegExp(`id="${id}"`));
 for (const asset of ['404.html', 'favicon.svg', 'social-card.png', 'robots.txt', 'sitemap.xml']) await access(path.join(root, asset));
 // Catch broken local links/assets and anchors before a deployment reaches Pages.
 for (const [, url] of html.matchAll(/(?:href|src)="([^"\s]+)"/g)) {

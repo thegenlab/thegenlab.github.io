@@ -1,0 +1,8 @@
+GenLab illustration study
+
+Mode: built-in image_gen tool; new image generation.
+Saved source asset: src/assets/concept-room.png
+Astro creates optimized WebP variants for the homepage.
+
+Final prompt:
+Use case: stylized-concept. Asset type: an original editorial illustration for GenLab, an academic group studying how machines understand and create. Create a refined, intelligent, landscape illustration on a clean white ground, about 3:2 aspect ratio. Subject: one coherent, recognizable small room with a chair, a table, a bent desk lamp, and a window, drawn in consistent perspective. The room is interpreted through both visible surfaces and underlying structure: some portions are precise architectural pencil/ink contours, other portions are quiet painted material surfaces, and a few faint alternative contours suggest a different possible arrangement of the same furniture. This should read as one intentional composition, not multiple labeled steps, a collage of unrelated objects, or a before/after research figure. Style: sophisticated architectural editorial drawing, fine confident charcoal-blue lines, restrained flat planes of slate blue and a small amount of muted burnt orange, lots of white paper, a little dry pencil texture. Human-scale familiar objects; clear, legible silhouettes. No photorealistic CGI, no glossy plastic, no gradients or glow, no abstract torus, no spheres, no floating geometric decorations, no circuit boards, no brain icons, no arrows, no labels, no words, no logo, no watermark. The drawing should feel thoughtfully composed and suitable for a quiet serious research website, not a stock illustration. Leave generous blank space around the composition and keep the room and furniture fully visible.

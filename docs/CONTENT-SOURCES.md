@@ -8,7 +8,27 @@ Checked 10 October 2026. Featured projects are provisional editorial selections,
 - Personal homepage and current recruitment guidance: https://itszhen.com/
 - Verified name/title: Zhen Liu, Assistant Professor, School of Data Science, The Chinese University of Hong Kong, Shenzhen.
 - Email: zhenliu@cuhk.edu.cn. The prototype does not advertise unconfigured `contact@thegenlab.ai` forwarding.
-- The initial roster contains only the PI; no student names, portraits, or announcements have been invented.
+
+## Current team
+
+- Source: the People section of https://itszhen.com/, checked 10 October 2026. The owner requested that the current team be included in compact form.
+- Principal Investigator: Zhen Liu.
+- PhD students: Wenqian Zhang and Zhou Jiang.
+- MPhil student: Jinming Ren.
+- The source's combined “Visiting students & research assistants” group includes master's students Yaocheng Guo and Xiangwei Shen, and undergraduates Zihao Zhou, Zhuoran Xia, Jinlong Yang, and Zigeng Xu. These six entries retain the combined group in the content data; their compact visible labels describe their degree level without assigning an unverified appointment type.
+- Wenqian Zhang's confirmed personal website: https://godheritage.github.io/AboutMe/. No other student links or biographies have been added.
+- The current team contains ten people, including the PI. Alumni Qingming Liu, Yuping Zheng, and Bao Li are excluded from this current roster. Zhou Jiang also appears in the source's alumni section for an earlier undergraduate role and is included only once, as a current PhD student.
+
+## External collaborators
+
+Names and affiliations were supplied directly by the lab owner: Weiyang Liu — CUHK; Yandong Wen — Westlake U; Yuliang Xiu — Westlake U; Jie Fu — iQuestLab. These entries are separate from the current team. No personal links have been inferred.
+
+## Introductory illustration
+
+- Source asset: `src/assets/concept-room.png`.
+- Created for this homepage with the built-in image generation tool. The full generation prompt is preserved in `docs/ILLUSTRATION-PROMPT.txt`.
+- The room illustration expresses the lab's “Understand. Create.” theme; it is conceptual artwork rather than a figure reporting a research result.
+- Astro generates optimized WebP variants from the local source asset. The locally served IBM Plex Sans font is accompanied by `public/fonts/OFL.txt`.
 
 ## PAct
 
@@ -16,7 +36,7 @@ Checked 10 October 2026. Featured projects are provisional editorial selections,
 - Paper: https://arxiv.org/abs/2602.14965
 - Code: https://github.com/Mobiuslqm/PAct
 - Figure: https://pact-project.github.io/assets/figures/teaser.jpg
-- SIGGRAPH Asia 2026 status was explicitly **conditionally accepted** on the project website. Retain that qualification until confirmed otherwise.
+- Homepage venue label: SIGGRAPH Asia 2026, as requested by the lab owner. Acceptance-status wording is omitted.
 
 ## VGG-Flow
 
