@@ -1,26 +1,222 @@
 [
   {
-    "id": "pact", "name": "PAct", "title": "Part-Decomposed Single-View Articulated Object Generation",
-    "summary": "From a single image to a 3D object with parts that move.",
-    "authors": "Qingming Liu, Xinyue Yao, Shuyuan Zhang, Yueci Deng, Guiliang Liu, Zhen Liu, Kui Jia",
-    "venue": "SIGGRAPH Asia", "year": 2026, "featured": true, "order": 0,
-    "image": "/images/pact.webp", "imageAlt": "PAct generates articulated furniture and appliances with movable parts.", "imageFit": "contain",
-    "links": [{"label": "Project", "url": "https://pact-project.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2602.14965"}, {"label": "Code", "url": "https://github.com/Mobiuslqm/PAct"}]
-  },
-  {
-    "id": "vgg-flow", "name": "VGG-Flow", "title": "Value Gradient Guidance for Flow Matching Alignment",
-    "summary": "Aligning generative flow models with rewards while preserving their learned priors.",
-    "authors": "Zhen Liu, Tim Z. Xiao, Carles Domingo-Enrich, Weiyang Liu, Dinghuai Zhang",
-    "venue": "NeurIPS", "year": 2025, "featured": true, "order": 1,
-    "image": "/images/vgg-flow.webp", "imageAlt": "VGG-Flow pipeline illustrating reward alignment and a guided generation trajectory.", "imageFit": "contain",
-    "links": [{"label": "Project", "url": "https://vggflow25.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2512.05116"}, {"label": "Code", "url": "https://github.com/lzzcd001/vggflow"}]
-  },
-  {
-    "id": "besiegefield", "name": "BesiegeField", "title": "Compositional Machine Design as Program Synthesis with LLMs",
+    "id": "besiegefield",
+    "name": "BesiegeField",
+    "title": "Compositional Machine Design as Program Synthesis with LLMs",
     "summary": "Language-model agents build machines as programs and refine them through physical simulation.",
     "authors": "Wenqian Zhang, Yangyi Huang, Weiyang Liu, Zhen Liu",
-    "venue": "EMNLP · Oral", "year": 2026, "featured": true, "order": 2,
-    "image": "/images/besiegefield.webp", "imageAlt": "Machines designed and evaluated in the BesiegeField simulation environment.", "imageFit": "contain",
-    "links": [{"label": "Project", "url": "https://besiegefield.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/abs/2510.14980"}, {"label": "Code", "url": "https://github.com/Godheritage/BesiegeField"}]
+    "venue": "EMNLP · Oral",
+    "year": 2026,
+    "featured": true,
+    "order": 0,
+    "image": "/images/besiegefield.webp",
+    "imageAlt": "Machines designed and evaluated in the BesiegeField simulation environment.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://besiegefield.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2510.14980"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Godheritage/BesiegeField"
+      }
+    ]
+  },
+  {
+    "id": "eva",
+    "name": "EVA",
+    "title": "EVA: Aligning Video World Models with Executable Robot Actions via Inverse Dynamics Rewards",
+    "summary": "Aligning video world models with actions a robot can execute.",
+    "authors": "Ruixiang Wang, Qingming Liu, Yueci Deng, Guiliang Liu, Zhen Liu, Kui Jia",
+    "venue": "arXiv",
+    "year": 2026,
+    "featured": true,
+    "order": 1,
+    "image": "/images/eva.webp",
+    "imageAlt": "EVA aligns video generation with executable robot actions and supports video generation, action planning, and VLA training.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://eva-project-page.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2603.17808"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/RobbinW/EVA"
+      }
+    ]
+  },
+  {
+    "id": "drpo",
+    "name": "DrPO",
+    "title": "Drifting Preference Optimization for One-Step Generative Models",
+    "summary": "Aligning one-step image generators with preferences without differentiating through rewards.",
+    "authors": "Zhou Jiang, Yandong Wen, Zhen Liu",
+    "venue": "NeurIPS",
+    "year": 2026,
+    "featured": true,
+    "order": 2,
+    "image": "/images/drpo.webp",
+    "imageAlt": "Matched text-to-image prompts before and after DrPO preference optimization of SDXL-Turbo.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://ugvly.github.io/DrPO/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2606.02521"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/UGVly/DrPO"
+      }
+    ]
+  },
+  {
+    "id": "pact",
+    "name": "PAct",
+    "title": "Part-Decomposed Single-View Articulated Object Generation",
+    "summary": "From a single image to a 3D object with parts that move.",
+    "authors": "Qingming Liu, Xinyue Yao, Shuyuan Zhang, Yueci Deng, Guiliang Liu, Zhen Liu, Kui Jia",
+    "venue": "SIGGRAPH Asia",
+    "year": 2026,
+    "featured": true,
+    "order": 3,
+    "image": "/images/pact.webp",
+    "imageAlt": "PAct generates articulated furniture and appliances with movable parts.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://pact-project.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2602.14965"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Mobiuslqm/PAct"
+      }
+    ]
+  },
+  {
+    "id": "vgg-flow",
+    "name": "VGG-Flow",
+    "title": "Value Gradient Guidance for Flow Matching Alignment",
+    "summary": "Aligning generative flow models with rewards while preserving their learned priors.",
+    "authors": "Zhen Liu, Tim Z. Xiao, Carles Domingo-Enrich, Weiyang Liu, Dinghuai Zhang",
+    "venue": "NeurIPS",
+    "year": 2025,
+    "featured": true,
+    "order": 4,
+    "image": "/images/vgg-flow.webp",
+    "imageAlt": "VGG-Flow pipeline illustrating reward alignment and a guided generation trajectory.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://vggflow25.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2512.05116"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/lzzcd001/vggflow"
+      }
+    ]
+  },
+  {
+    "id": "asap",
+    "name": "ASAP",
+    "title": "Towards Anatomically Plausible Human Image Generation via Synthetic Localized Preferences",
+    "summary": "Reducing anatomical errors in generated human images through synthetic, localized preferences.",
+    "authors": "Bao Li, Yuliang Xiu, Zhen Liu",
+    "venue": "arXiv",
+    "year": 2026,
+    "featured": true,
+    "order": 5,
+    "image": "/images/asap.webp",
+    "imageAlt": "ASAP generated human images and comparisons highlighting corrections to hands and faces.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://britton-li.github.io/ASAP/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2605.25759"
+      }
+    ]
+  },
+  {
+    "id": "meshdiffusion",
+    "name": "MeshDiffusion",
+    "title": "MeshDiffusion: Score-based Generative 3D Mesh Modeling",
+    "summary": "Generating detailed 3D meshes directly with diffusion models.",
+    "authors": "Zhen Liu, Yao Feng, Michael J. Black, Derek Nowrouzezahrai, Liam Paull, Weiyang Liu",
+    "venue": "ICLR · Spotlight",
+    "year": 2023,
+    "featured": true,
+    "order": 6,
+    "image": "/images/meshdiffusion.webp",
+    "imageAlt": "MeshDiffusion generates diverse meshes of chairs, cars, and airplanes, with examples of added textures.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://meshdiffusion.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2303.08133"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/lzzcd001/MeshDiffusion/"
+      }
+    ]
+  },
+  {
+    "id": "g-shell",
+    "name": "G-Shell",
+    "title": "Ghost on the Shell: An Expressive Representation of General 3D Shapes",
+    "summary": "Reconstructing and generating 3D shapes, from solid objects to thin, open surfaces.",
+    "authors": "Zhen Liu, Yao Feng, Yuliang Xiu, Weiyang Liu, Liam Paull, Michael J. Black, Bernhard Schölkopf",
+    "venue": "ICLR · Oral",
+    "year": 2024,
+    "featured": true,
+    "order": 7,
+    "image": "/images/g-shell.webp",
+    "imageAlt": "G-Shell represents open surfaces and supports mesh reconstruction and generation, illustrated with clothing shapes.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://gshell3d.github.io/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2310.15168"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/lzzcd001/GShell/"
+      }
+    ]
   }
 ]
