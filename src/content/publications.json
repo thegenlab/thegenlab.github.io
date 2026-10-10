@@ -9,7 +9,7 @@
     "year": 2026,
     "featured": true,
     "order": 0,
-    "image": "/images/besiegefield.webp",
+    "image": "../assets/research/besiegefield.webp",
     "imageAlt": "Machines designed and evaluated in the BesiegeField simulation environment.",
     "imageFit": "contain",
     "links": [
@@ -37,7 +37,7 @@
     "year": 2026,
     "featured": true,
     "order": 1,
-    "image": "/images/eva.webp",
+    "image": "../assets/research/eva.webp",
     "imageAlt": "EVA aligns video generation with executable robot actions and supports video generation, action planning, and VLA training.",
     "imageFit": "contain",
     "links": [
@@ -65,7 +65,7 @@
     "year": 2026,
     "featured": true,
     "order": 2,
-    "image": "/images/drpo-method.webp",
+    "image": "../assets/research/drpo-method.webp",
     "imageAlt": "DrPO method overview showing preference and reference drift in feature space, with generated samples across finetuning steps.",
     "imageFit": "contain",
     "links": [
@@ -93,7 +93,7 @@
     "year": 2026,
     "featured": true,
     "order": 3,
-    "image": "/images/pact.webp",
+    "image": "../assets/research/pact.webp",
     "imageAlt": "PAct generates articulated furniture and appliances with movable parts.",
     "imageFit": "contain",
     "links": [
@@ -121,7 +121,7 @@
     "year": 2026,
     "featured": true,
     "order": 4,
-    "image": "/images/asap.webp",
+    "image": "../assets/research/asap.webp",
     "imageAlt": "ASAP generated human images and comparisons highlighting corrections to hands and faces.",
     "imageFit": "contain",
     "links": [
@@ -145,7 +145,7 @@
     "year": 2025,
     "featured": true,
     "order": 5,
-    "image": "/images/vgg-flow.webp",
+    "image": "../assets/research/vgg-flow.webp",
     "imageAlt": "VGG-Flow pipeline illustrating reward alignment and a guided generation trajectory.",
     "imageFit": "contain",
     "links": [
@@ -173,7 +173,7 @@
     "year": 2025,
     "featured": true,
     "order": 6,
-    "image": "/images/nabla-gflownet.webp",
+    "image": "../assets/research/nabla-gflownet.webp",
     "imageAlt": "Nabla-GFlowNet method diagrams showing gradient-informed diffusion alignment, alongside diverse generated animals across finetuning steps.",
     "imageFit": "contain",
     "links": [
@@ -201,7 +201,7 @@
     "year": 2024,
     "featured": true,
     "order": 7,
-    "image": "/images/g-shell.webp",
+    "image": "../assets/research/g-shell.webp",
     "imageAlt": "G-Shell represents open surfaces and supports mesh reconstruction and generation, illustrated with clothing shapes.",
     "imageFit": "contain",
     "links": [
@@ -229,7 +229,7 @@
     "year": 2023,
     "featured": true,
     "order": 8,
-    "image": "/images/meshdiffusion.webp",
+    "image": "../assets/research/meshdiffusion.webp",
     "imageAlt": "MeshDiffusion generates diverse meshes of chairs, cars, and airplanes, with examples of added textures.",
     "imageFit": "contain",
     "links": [

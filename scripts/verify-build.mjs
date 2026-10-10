@@ -29,7 +29,25 @@ for (const file of pages) {
   const page = await readFile(file, 'utf8');
   const route = path.relative(root, file).split(path.sep).join('/');
   const pageURL = new URL(route, 'https://thegenlab.ai/');
-  for (const [, href] of page.matchAll(/(?:href|src)=['"]([^'"\s]+)['"]/g)) {
+  const references = Array.from(page.matchAll(/(?:href|src)=['"]([^'"]*)['"]/g), match => match[1]);
+  for (const [, src] of page.matchAll(/<img\b[^>]*\bsrc=['"]([^'"]*)['"]/g)) {
+    assert.ok(src && !src.includes('[object Object]'), `Invalid image source in ${route}: ${src}`);
+  }
+  // Astro's responsive images use srcset; every generated variant must exist.
+  for (const [, srcset] of page.matchAll(/\bsrcset=['"]([^'"]*)['"]/g)) {
+    let cursor = 0;
+    while (cursor < srcset.length) {
+      while (cursor < srcset.length && /[\s,]/.test(srcset[cursor])) cursor++;
+      const start = cursor;
+      while (cursor < srcset.length && !/\s/.test(srcset[cursor])) cursor++;
+      const candidate = srcset.slice(start, cursor);
+      if (!candidate) break;
+      references.push(candidate.replace(/,+$/, ''));
+      // Keep commas inside data URLs, but skip a candidate's width/density descriptor.
+      if (!candidate.endsWith(',')) while (cursor < srcset.length && srcset[cursor] !== ',') cursor++;
+    }
+  }
+  for (const href of references) {
     if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(href)) continue;
     const url = new URL(href, pageURL);
     if (url.origin !== pageURL.origin) continue;

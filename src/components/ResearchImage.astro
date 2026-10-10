@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  fit: 'contain' | 'cover';
+}
+
+const { image, alt, fit } = Astro.props;
+// Match the card widths and page margins in global.css. The browser chooses
+// a compact thumbnail for its viewport and pixel density, capped at 800px.
+const sizes = '(max-width: 560px) calc(88vw - 35.2px), (max-width: 740px) calc((100vw - 70px) / 1.7), (max-width: 1000px) calc((100vw - 103.2px) / 2.3), (max-width: 1280px) calc((100vw - 164px) / 2.65), 421px';
+---
+<Image
+  src={image}
+  alt={alt}
+  width={800}
+  widths={[400, 800]}
+  sizes={sizes}
+  format="webp"
+  quality={76}
+  loading="lazy"
+  decoding="async"
+  draggable={false}
+  style={`object-fit: ${fit}`}
+/>

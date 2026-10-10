@@ -14,10 +14,10 @@ src/
   projects/
     README.md                   # Start here for new project websites
   content/                      # Selected research, people, collaborators
-  assets/                       # Homepage illustration source
+  assets/                       # Homepage illustration and research figure sources
   layouts/                      # Homepage layout
   styles/                       # Homepage styles
-public/                         # Files served unchanged: fonts, images, downloads
+public/                         # Files served unchanged: fonts, downloads
 scripts/                        # Build verification
 docs/                           # Project setup, deployment, content sources
 ```
@@ -81,7 +81,7 @@ Edit these files without changing the layout:
 | New project website source | `src/projects/<project>/` |
 | New project URL routes | `src/pages/<project>/` |
 
-Every content entry has a unique `id`. Astro validates entries at build time. For projects, `featured: true` includes an entry in Selected research; lower `order` values appear first. The carousel supports more than three projects without changing the layout. Use distinct order values for predictable placement. The first link is the project destination; remaining links typically point to the paper and code. Homepage carousel images belong in `public/images/` and need descriptive `imageAlt` text. `imageFit` can be `contain` (show the whole figure) or `cover` (fill the preview).
+Every content entry has a unique `id`. Astro validates entries at build time. For projects, `featured: true` includes an entry in Selected research; lower `order` values appear first. The carousel supports more than three projects without changing the layout. Use distinct order values for predictable placement. The first link is the project destination; remaining links typically point to the paper and code. Homepage carousel image sources belong in `src/assets/research/`. Set each JSON `image` to a path relative to the content file, for example `../assets/research/projectA.webp`, and provide descriptive `imageAlt` text. Astro validates the source and generates 400- and 800-pixel WebP thumbnails during the build; browsers select the appropriate size and load offscreen figures lazily. Keep the complete source figure in the repository rather than manually maintaining thumbnail variants. `imageFit` can be `contain` (show the whole figure) or `cover` (fill the preview).
 
 The compact Team section groups `people.json` into Faculty, Core members, and Research assistants & visiting students, preserving ascending `order` within each group. Only PhD and MPhil students belong to the `Students` group displayed as Core members; the content schema enforces this. Research assistants and visiting students keep their separate group regardless of degree level. Add or update members using confirmed names, roles, and affiliations, and only include verified personal or institutional links.
 
@@ -105,4 +105,4 @@ The homepage uses locally served **IBM Plex Sans** from `public/fonts/plex-sans.
 
 Project figures come from the linked research websites; their source credits and factual verification are recorded in [content sources](docs/CONTENT-SOURCES.md). These research assets retain their authors’ rights. Keep the Team and External collaborators sections compact, using names, roles or affiliations, and confirmed links.
 
-The carousel uses native horizontal scrolling, with JavaScript adding previous/next buttons and keyboard navigation. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Keep each project website’s layout and styles independent of the homepage. The [project website guide](docs/PROJECTS.md) explains asset imports, nested routes and style isolation.
+The carousel supports native touch and trackpad scrolling, mouse dragging, previous/next buttons, and keyboard navigation. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Keep each project website’s layout and styles independent of the homepage. The [project website guide](docs/PROJECTS.md) explains asset imports, nested routes and style isolation.

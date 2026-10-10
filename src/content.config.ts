@@ -16,6 +16,6 @@ const collaborators = defineCollection({
 });
 const publications = defineCollection({
   loader: file('src/content/publications.json'),
-  schema: z.object({ title: z.string(), name: z.string(), summary: z.string(), authors: z.string(), venue: z.string(), year: z.number().int(), featured: z.boolean().default(false), order: z.number().default(99), image: z.string(), imageAlt: z.string(), imageFit: z.enum(['cover', 'contain']).default('cover'), links: z.array(link).min(1) }),
+  schema: ({ image }) => z.object({ title: z.string(), name: z.string(), summary: z.string(), authors: z.string(), venue: z.string(), year: z.number().int(), featured: z.boolean().default(false), order: z.number().default(99), image: image(), imageAlt: z.string(), imageFit: z.enum(['cover', 'contain']).default('cover'), links: z.array(link).min(1) }),
 });
 export const collections = { people, collaborators, publications };
