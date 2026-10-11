@@ -3,14 +3,17 @@
  * After the first visit it precaches the page shell and the Figure 7 viewer
  * files, so the 3D views are ready before the reader scrolls to them and
  * return visits come from the local cache. The page itself always tries the
- * network first, so a deploy shows up on the next load. Everything else is
- * served from the cache and refreshed in the background, so a changed file
- * appears one load later even without a new ?v= value. Videos bypass the
- * worker so the browser can stream them with range requests.
+ * network first, so a deploy shows up on the next load. The page's other
+ * files are served from the cache and refreshed in the background, so a
+ * changed file appears one load later even without a new ?v= value. Videos
+ * bypass the worker so the browser can stream them with range requests.
+ * Other apps published below this directory (the GenLab copy serves the
+ * comparison demo at demo/) bypass it too and keep their own caching.
  *
- * Bump VERSION whenever the precache list or a ?v= value changes.
+ * Bump VERSION whenever the precache list or a ?v= value changes; a new
+ * VERSION also deletes everything older workers cached.
  */
-const VERSION = "20261011-1";
+const VERSION = "20261011-2";
 const CACHE = `funcad-${VERSION}`;
 const SHELL = [
   "./",
@@ -27,6 +30,12 @@ const VIEWERS = [
   "assets/failures/bicycle-failure-detail.glb?v=20261010-2",
 ];
 const SCOPE = new URL("./", self.location).pathname;
+// The page's own files sit directly in SCOPE or under assets/.
+const isPageFile = (pathname) => {
+  if (!pathname.startsWith(SCOPE)) return false;
+  const rest = pathname.slice(SCOPE.length);
+  return !rest.includes("/") || rest.startsWith("assets/");
+};
 
 self.addEventListener("install", (event) => {
   // Respect Data Saver: keep only the shell then, and let the viewers load on demand.
@@ -46,7 +55,7 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET" || request.headers.has("range")) return;
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin || !url.pathname.startsWith(SCOPE)) return;
+  if (url.origin !== self.location.origin || !isPageFile(url.pathname)) return;
   if (/\.(mp4|webm)$/i.test(url.pathname)) return;
   event.respondWith(request.mode === "navigate" ? networkFirst(request) : staleWhileRevalidate(event, request));
 });
