@@ -11,5 +11,8 @@ there and export again rather than editing them here.
   figures, the Figure 7 models, the three.js bundle the 3D viewers load on
   demand, and the service worker, which has to sit at `/funcad/sw.js` to
   control the page.
+- The comparison demo is at https://thegenlab.ai/funcad/demo/; its Astro routes live under
+  `src/pages/funcad/demo/` and its viewer data is served from
+  `public/funcad/demo/`.
 - The showcase film streams from the UCL copy of the page (https://zigeng.duckdns.org/funcad/)
   so this repository stays small.

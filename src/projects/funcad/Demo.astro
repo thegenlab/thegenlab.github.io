@@ -1,0 +1,46 @@
+---
+// Generated from comparison_demo/viewer/index.html by deploy/thegenlab/export_site.py.
+// Edit the viewer source in the FunCAD-Harness repository and export again.
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>公开 CAD 数据集 vs simulation-ready 设计包 — 统一仿真回放</title>
+  <link rel="stylesheet" href="/funcad/demo/viewer.css?v=dead2">
+</head>
+<body>
+  <div class="page">
+    <nav class="mode-tabs" aria-label="目录切换">
+      <a href="/funcad/demo/" id="tab-dataset">数据集</a>
+      <a href="/funcad/demo/?mode=animation" id="tab-animation">Animation</a>
+    </nav>
+    <header>
+      <h1 id="page-title">公开 CAD 数据集 vs simulation-ready 设计包 — 统一仿真回放</h1>
+      <div class="tallies" id="tallies"></div>
+      <div class="legend" id="page-legend">
+        <p><b>静置关</b>：无输入、重力 4 s。每个非接地体位移都 &lt; 10 mm → STABLE，否则 COLLAPSE。</p>
+        <p><b>微驱动关</b>：仅静置 STABLE 的案例；给第一个可动关节加恒定小载荷。关节坐标前进 ≥ 0.175 rad / 10 mm → MOTION_OK。</p>
+        <p><b>诊断</b>：同样的微驱动，但关掉被驱动一对的接触。只作对照，不是判定。</p>
+        <p><b>10× 驱动</b>：载荷乘 10，其余与微驱动相同。只作对照，不是判定。</p>
+        <p><b>逐步发散</b>：个别静置中途炸掉的案例另有 1 ms 采样回放。飞出位移会夹到 12 m，只为看清方向。</p>
+        <div class="legend-swatches">
+          <span class="badge badge-stable">STABLE / MOTION_OK</span>
+          <span class="badge badge-collapse">COLLAPSE</span>
+          <span class="badge badge-dead">MOTION_DEAD</span>
+          <span class="badge badge-erratic">MOTION_ERRATIC</span>
+          <span class="badge badge-diag">诊断 / 10×（描边）</span>
+        </div>
+      </div>
+    </header>
+    <main id="sections"></main>
+    <footer class="page-foot">
+      <a href="../report/comparison_report.md">对比报告</a>
+      <a href="../runs/summary.md">汇总表</a>
+    </footer>
+  </div>
+  <script is:inline src="/funcad/demo/i18n.js?v=english-default-2"></script>
+  <script is:inline src="/funcad/demo/catalog.js"></script>
+</body>
+</html>

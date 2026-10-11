@@ -427,8 +427,8 @@ function registerServiceWorker() {
 
 function setupDemoLinks() {
   const { hostname, pathname } = window.location;
-  let href = "https://zigeng.duckdns.org/harness/demo/";
-  if (hostname === "zigeng.duckdns.org") href = "/harness/demo/";
+  let href = "https://thegenlab.ai/funcad/demo/";
+  if (hostname === "thegenlab.ai" || hostname === "www.thegenlab.ai") href = "/funcad/demo/";
   else if (pathname.includes("/project_site/")) href = "/comparison_demo/viewer/";
   $$("[data-demo-link]").forEach((a) => { a.href = href; });
 }

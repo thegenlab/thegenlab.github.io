@@ -175,7 +175,12 @@ h1, h2, h3 { font-family: var(--font); margin: 0; }
 }
 .hero h1 em { font-style: normal; color: #f2b84b; }
 .hero-sub { margin: 22px 0 0; font-size: clamp(18px, 2.3vw, 27px); font-weight: 500; letter-spacing: -0.012em; opacity: 0.94; }
-.hero-authors { margin: 12px 0 0; font-size: 15px; opacity: 0.66; }
+.hero-authors { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 18px 0 0; font-size: 15px; opacity: 0.9; }
+.hero-authors span { white-space: nowrap; }
+.hero-authors sup, .hero-affiliations sup { margin-left: 2px; font-size: 0.7em; }
+.hero-affiliations { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin: 10px 0 0; font-size: 12px; line-height: 1.5; opacity: 0.78; }
+.hero-affiliations sup { margin: 0 3px 0 0; }
+.hero-contribution { margin: 6px 0 0; font-size: 12px; opacity: 0.7; }
 .hero-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 34px; }
 .hero-note {
   position: absolute; right: max(20px, calc((100% - var(--wrap)) / 2)); bottom: 26px; margin: 0;
