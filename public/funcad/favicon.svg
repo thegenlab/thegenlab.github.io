@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FunCAD">
+  <rect width="64" height="64" rx="16" fill="#102024"/>
+  <path d="M20 42V22h24" fill="none" stroke="#67c7b7" stroke-width="6" stroke-linecap="round"/>
+  <path d="M20 32h16" fill="none" stroke="#f0b96d" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="44" cy="42" r="5" fill="#f28b6d"/>
+</svg>

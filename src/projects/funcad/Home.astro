@@ -1,0 +1,368 @@
+---
+// Generated from project_site/index.html by deploy/thegenlab/export_site.py
+// in the FunCAD-Harness repository. Edit the source there and export again.
+import "./styles.css";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0f13" />
+    <meta name="description" content="Can It Actually Work? LLM agents design CAD mechanisms and revise them from physics tests. FunCADBench spans 46 mechanism families; FunCAD-Harness binds functional requirements to candidate-specific simulation tests." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Can It Actually Work? Synthesizing Functional CAD Mechanisms" />
+    <meta property="og:description" content="Agent-built CAD mechanisms, tested in physics and printed for real. FunCADBench (46 families) and FunCAD-Harness." />
+    <meta property="og:image" content="https://thegenlab.ai/funcad/assets/hero/hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://thegenlab.ai/funcad/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>FunCAD — Can It Actually Work?</title>
+    <script is:inline>
+      (function () {
+        var t = "";
+        try { t = localStorage.getItem("funcad-theme") || ""; } catch (e) {}
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z" /></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" /><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" /></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" /></symbol>
+      <symbol id="i-data" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="7" ry="2.6" /><path d="M5 5.5v13c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-13M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6" /></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5" /><path d="M20 20l-4.2-4.2M11 8v6M8 11h6" /></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></symbol>
+      <symbol id="i-orbit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.5-6" /><path d="M20.5 4v4.5H16" /></symbol>
+      <symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8" /><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8" /></symbol>
+    </svg>
+
+    <header class="nav" data-nav>
+      <a class="brand" href="#top" aria-label="FunCAD home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#problem">Problem</a>
+        <a href="#harness">Harness</a>
+        <a href="#simulation">Simulation</a>
+        <a href="#revision">Revision</a>
+        <a href="#prototypes">Prototypes</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#results">Results</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"><svg><use href="#i-theme" /></svg></button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Introduction">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero/hero.jpg" aria-hidden="true">
+          <source src="assets/hero/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade"></div>
+        <div class="hero-inner">
+          <p class="hero-kicker">Functional CAD design</p>
+          <h1>Can It Actually <em>Work?</em></h1>
+          <p class="hero-sub">Synthesizing Functional CAD Mechanisms</p>
+          <p class="hero-authors">Anonymous authors</p>
+          <div class="hero-links">
+            <a class="pill pill-solid" href="assets/paper.pdf" target="_blank" rel="noreferrer"><svg><use href="#i-paper" /></svg>Paper</a>
+            <button class="pill" type="button" data-film><svg><use href="#i-play" /></svg>Video</button>
+            <a class="pill" href="https://zigeng.duckdns.org/harness/demo/" data-demo-link target="_blank" rel="noreferrer"><svg><use href="#i-cube" /></svg>Demo</a>
+            <span class="pill pill-muted" title="Coming soon"><svg><use href="#i-code" /></svg>Code <small>soon</small></span>
+            <span class="pill pill-muted" title="Coming soon"><svg><use href="#i-data" /></svg>Dataset <small>soon</small></span>
+          </div>
+        </div>
+        <p class="hero-note">3D-printed prototypes of AI-generated designs</p>
+        <a class="scroll-cue" href="#overview" aria-label="Scroll to overview"></a>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="wrap">
+          <p class="lead" data-reveal>A CAD model can look right and still fail. <span>We ask agents to build mechanisms that pass physics tests.</span></p>
+          <figure class="figure-card zoomable" data-reveal data-full="assets/img/fig1.webp">
+            <img src="assets/img/fig1.webp" width="1616" height="720" decoding="async" alt="Paper Figure 1: a cup-access request becomes functional goals, an agent-built CAD model tested in simulation, and a printed prototype" />
+            <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+            <figcaption><b>Figure 1.</b> From a user request to a printed, working prototype.</figcaption>
+          </figure>
+          <div class="stats" data-reveal>
+            <div class="stat"><strong>46</strong><span>mechanism families</span></div>
+            <div class="stat"><strong>75</strong><span>agent-built assemblies</span></div>
+            <div class="stat"><strong>8<span class="arrow">→</span>22</strong><span>Astra tasks solved: simulation tools → full harness</span></div>
+            <div class="stat"><strong>36<small>/46</small></strong><span>Grok with retained history, ≤8 attempts</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="section tint">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">01 · The problem</span>
+            <h2>Looks right. Doesn’t work.</h2>
+            <p class="sub">Plausible assemblies can hide interference that blocks the function.</p>
+          </header>
+          <figure class="figure-card zoomable" data-reveal data-full="assets/img/fig7.webp">
+            <img src="assets/img/fig7.webp" width="1616" height="532" loading="lazy" decoding="async" alt="Paper Figure 7: an Astra bicycle whose steering intersects the frame, and an Astra clock whose hour wheel overlaps the alarm lever" />
+            <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+            <figcaption><b>Figure 7.</b> Astra designs produced without harness feedback.</figcaption>
+          </figure>
+          <div class="viewer-pair" data-reveal>
+            <div class="viewer-card">
+              <div class="failure-viewer" data-failure-model="bicycle" data-model-coarse="assets/failures/bicycle-failure-detail-coarse.glb?v=20261010-2" data-model-src="assets/failures/bicycle-failure-detail.glb?v=20261010-2"><span class="viewer-status">Loading 3D…</span></div>
+              <div class="viewer-label"><span>Cargo bicycle · Astra</span><strong>Steering <i>blocked</i></strong></div>
+              <span class="viewer-hint"><svg><use href="#i-orbit" /></svg>Drag to orbit</span>
+            </div>
+            <div class="viewer-card">
+              <div class="failure-viewer" data-failure-model="clock" data-view="1.2 1.05 -1.85" data-model-src="assets/failures/clock-failure-detail.glb?v=20261010-2"><span class="viewer-status">Loading 3D…</span></div>
+              <div class="viewer-label"><span>Alarm clock · Astra</span><strong>Hour hand <i>blocked</i></strong></div>
+              <span class="viewer-hint"><svg><use href="#i-orbit" /></svg>Drag to orbit</span>
+            </div>
+          </div>
+          <div class="center-row" data-reveal>
+            <a class="pill on-page" href="https://zigeng.duckdns.org/harness/demo/" data-demo-link target="_blank" rel="noreferrer"><svg><use href="#i-cube" /></svg>Compare full assemblies in the demo<svg><use href="#i-arrow" /></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="harness" class="section band-dark">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">02 · FunCAD-Harness</span>
+            <h2>Test the function, not the look.</h2>
+            <p class="sub">Each requirement becomes a physics test bound to the candidate’s own parts.</p>
+          </header>
+          <figure class="figure-card zoomable" data-reveal data-full="assets/img/fig5.webp">
+            <img src="assets/img/fig5.webp" width="1584" height="668" loading="lazy" decoding="async" alt="Paper Figure 5: FunCAD-Harness connects functional requirements, a candidate mechanism, candidate-specific testbeds, and execution feedback, illustrated with a releasable winch" />
+            <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+            <figcaption><b>Figure 5.</b> Requirements → candidate-specific tests → diagnostic feedback.</figcaption>
+          </figure>
+          <ol class="loop" data-reveal>
+            <li><b>Requirements</b><span>What it must do</span></li>
+            <li><b>Construction</b><span>CAD, joints, assumptions</span></li>
+            <li><b>Test binding</b><span>Tests fit this candidate</span></li>
+            <li><b>Execution</b><span>Rigid-body physics + audits</span></li>
+            <li><b>Revision</b><span>Diagnose and repair</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="simulation" class="section">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">03 · In simulation</span>
+            <h2>Every candidate runs its own test.</h2>
+          </header>
+          <div class="sim-grid" id="sim-grid" data-reveal></div>
+          <p class="fine">Replays of recorded FunCAD-Harness tests from our experiment archive · original CAD geometry, display colors.</p>
+
+          <div class="subhead" data-reveal>
+            <h3>One task, four designs</h3>
+            <p>Task 22 · slider-crank push rod · every build passes</p>
+          </div>
+          <div class="pair-videos variants" data-sync data-reveal>
+            <figure class="media-card"><video data-src="assets/sim/task22_grok.mp4" data-poster="assets/sim/task22_grok.jpg" muted loop playsinline preload="none" aria-label="Grok's slider-crank: vertical crank axis, rod over a drum crank, slider on two rails"></video><figcaption class="media-cap"><b>Drum crank<span class="wide-only"> · 9 parts · 44 mm</span></b><span class="agent" data-agent="Grok">Grok</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/sim/task22_fable.mp4" data-poster="assets/sim/task22_fable.jpg" muted loop playsinline preload="none" aria-label="Fable's slider-crank: horizontal crank axis, handwheel, square guide"></video><figcaption class="media-cap"><b>Handwheel<span class="wide-only"> · 16 parts · 40 mm</span></b><span class="agent" data-agent="Fable">Fable</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/sim/task22_kimi.mp4" data-poster="assets/sim/task22_kimi.jpg" muted loop playsinline preload="none" aria-label="Kimi's slider-crank: horizontal crank axis, pedestal-mounted hand crank"></video><figcaption class="media-cap"><b>Pedestal crank<span class="wide-only"> · 8 parts · 36 mm</span></b><span class="agent" data-agent="Kimi">Kimi</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/sim/task22_astra.mp4" data-poster="assets/sim/task22_astra.jpg" muted loop playsinline preload="none" aria-label="Astra's slider-crank: vertical crank axis, crosshead on twin guide shafts"></video><figcaption class="media-cap"><b>Twin guide shafts<span class="wide-only"> · 24 parts · 44 mm</span></b><span class="agent" data-agent="Astra">Astra</span></figcaption></figure>
+          </div>
+          <p class="fine">Same requirements, four passing designs, each replayed from its recorded loaded test on original CAD geometry in display colors. The last two crank turns of every test are scaled to one common loop, so playback is not real time and speeds are not comparable. Captions give part count and stroke under load.</p>
+        </div>
+      </section>
+
+      <section id="revision" class="section tint">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">04 · Revision</span>
+            <h2>Fail. Diagnose. Repair.</h2>
+            <p class="sub">Physical feedback tells the agent what broke, so the next revision fixes it.</p>
+          </header>
+          <div class="tabs" role="tablist" aria-label="Repair examples" data-reveal>
+            <button class="tab" role="tab" id="tab-gripper" aria-controls="panel-gripper" aria-selected="true">Gripper <span class="agent" data-agent="Fable">Fable</span></button>
+            <button class="tab" role="tab" id="tab-latch" aria-controls="panel-latch" aria-selected="false" tabindex="-1">Door latch <span class="agent" data-agent="Grok">Grok</span></button>
+            <button class="tab" role="tab" id="tab-engine" aria-controls="panel-engine" aria-selected="false" tabindex="-1">Engine linkage <span class="agent" data-agent="Grok">Grok</span></button>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-gripper" aria-labelledby="tab-gripper">
+            <div class="revision-layout">
+              <figure class="figure-card zoomable tall" data-full="assets/img/fig9.webp">
+                <img src="assets/img/fig9.webp" width="1616" height="1149" loading="lazy" decoding="async" alt="Paper Figure 9: Fable's design trajectory for the synchronized parallel gripper, from construction to a repaired design that passes repeated grasp-release cycles" />
+                <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+                <figcaption><b>Figure 9.</b> Synchronized parallel gripper, revisions r01 → r02.</figcaption>
+              </figure>
+              <div class="revision-side">
+                <div class="pair-videos">
+                  <figure class="media-card"><video data-src="assets/sim/gripper_r01.mp4" data-poster="assets/sim/gripper_r01.jpg" muted loop playsinline preload="none" aria-label="Replay of revision r01: the workpiece tips after release"></video><figcaption class="media-cap"><b>r01<span class="wide-only"> · piece tips over</span></b><span class="agent state-fail">Fail</span></figcaption></figure>
+                  <figure class="media-card"><video data-src="assets/sim/gripper.mp4" data-poster="assets/sim/gripper.jpg" muted loop playsinline preload="none" aria-label="Replay of revision r02: both loaded grasp-release cycles succeed"></video><figcaption class="media-cap"><b>r02<span class="wide-only"> · grasps twice</span></b><span class="agent state-pass">Pass</span></figcaption></figure>
+                </div>
+                <ol class="steps">
+                  <li data-mark="✕"><span>Second grasp misses · <b>0 N</b> of 10 N</span></li>
+                  <li class="fix" data-mark="↻"><span>Wider pads and rest, 35 N input limit</span></li>
+                  <li class="pass" data-mark="✓"><span>Second grasp <b>14.4 N</b> · both cycles pass</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-latch" aria-labelledby="tab-latch" hidden>
+            <div class="revision-layout">
+              <figure class="figure-card zoomable" data-full="assets/img/fig8.webp">
+                <img src="assets/img/fig8.webp" width="1616" height="720" loading="lazy" decoding="async" alt="Paper Figure 8: Grok repairs re-locking and local interference in a spring-return door latch across revisions r04 to r06" />
+                <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+                <figcaption><b>Figure 8.</b> Spring-return door latch, revisions r04 → r06.</figcaption>
+              </figure>
+              <div class="revision-side">
+                <ol class="steps">
+                  <li data-mark="✕"><span>Opens, but never re-locks · <b>13/15</b> checks</span></li>
+                  <li class="fix" data-mark="↻"><span>Adds a catching shoulder, relieves the faceplate</span></li>
+                  <li class="pass" data-mark="✓"><span><b>15/15</b> checks + geometry audit</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-engine" aria-labelledby="tab-engine" hidden>
+            <div class="revision-layout">
+              <figure class="figure-card zoomable" data-full="assets/img/fig10.webp">
+                <img src="assets/img/fig10.webp" width="1616" height="722" loading="lazy" decoding="async" alt="Paper Figure 10: Grok repairs a twin-cylinder linkage by enlarging the flywheel, clearing a new cylinder contact, and verifying repeated piston motion" />
+                <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+                <figcaption><b>Figure 10.</b> Twin-cylinder engine linkage, revisions r01 → r02.</figcaption>
+              </figure>
+              <div class="revision-side">
+                <ol class="steps">
+                  <li data-mark="✕"><span>Crank reverses under drive · <b>0</b> full cycles</span></li>
+                  <li class="fix" data-mark="↻"><span>Larger flywheel, 5 mm cylinder clearance</span></li>
+                  <li class="pass" data-mark="✓"><span><b>8/8</b> checks + geometry audit</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="prototypes" class="section">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">05 · Real world</span>
+            <h2>Printed. Assembled. Working.</h2>
+            <p class="sub">3D-printed prototypes of AI-generated designs.</p>
+          </header>
+          <div class="proto-grid" data-reveal>
+            <figure class="media-card"><video data-src="assets/proto/cup.mp4" data-poster="assets/proto/cup.jpg" muted loop playsinline preload="none" aria-label="Printed cup-access machine raising a rear cup"></video><figcaption class="media-cap"><b>Cup-access machine</b><span>Open-ended</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/proto/piston.mp4" data-poster="assets/proto/piston.jpg" muted loop playsinline preload="none" aria-label="Printed piston linkage driven by a crank"></video><figcaption class="media-cap"><b>Piston</b><span>Task 17</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/proto/counter.mp4" data-poster="assets/proto/counter.jpg" muted loop playsinline preload="none" aria-label="Printed two-digit mechanical counter"></video><figcaption class="media-cap"><b>Two-digit counter</b><span>Task 19</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/proto/timer.mp4" data-poster="assets/proto/timer.jpg" muted loop playsinline preload="none" aria-label="Printed ten-second gravity timer"></video><figcaption class="media-cap"><b>Gravity timer</b><span>Task 21</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/proto/lock.mp4" data-poster="assets/proto/lock.jpg" muted loop playsinline preload="none" aria-label="Printed three-digit combination lock"></video><figcaption class="media-cap"><b>Combination lock</b><span>Task 18</span></figcaption></figure>
+            <figure class="media-card"><video data-src="assets/proto/balls.mp4" data-poster="assets/proto/balls.jpg" muted loop playsinline preload="none" aria-label="Printed three-ball dispenser metering balls"></video><figcaption class="media-cap"><b>Ball dispenser</b><span>Task 20</span></figcaption></figure>
+          </div>
+          <div class="photo-row" data-reveal>
+            <figure class="zoomable" style="--r: 1.3333" data-full="assets/img/proto-cup.webp" data-caption="Cup-access machine, initial configuration"><img src="assets/img/proto-cup.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Printed cup-access machine with its target cup at the rear" /></figure>
+            <figure class="zoomable" style="--r: 0.5625" data-full="assets/img/proto-counter-a.webp" data-caption="Two-digit counter"><img src="assets/img/proto-counter-a.webp" width="810" height="1440" loading="lazy" decoding="async" alt="Printed two-digit counter showing its digit wheels" /></figure>
+            <figure class="zoomable" style="--r: 1.7766" data-full="assets/img/proto-lock.webp" data-caption="Three-digit combination lock"><img src="assets/img/proto-lock.webp" width="1400" height="788" loading="lazy" decoding="async" alt="Printed three-digit combination lock with numbered code wheels" /></figure>
+            <figure class="zoomable" style="--r: 1.7766" data-full="assets/img/proto-timer.webp" data-caption="Gravity timer"><img src="assets/img/proto-timer.webp" width="1400" height="788" loading="lazy" decoding="async" alt="Printed gravity timer assembly" /></figure>
+          </div>
+          <div class="center-row" data-reveal>
+            <button class="pill on-page pill-solid" type="button" data-film><svg><use href="#i-play" /></svg>Watch the full film · 2:39</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="benchmark" class="section tint">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">06 · FunCADBench</span>
+            <h2>46 mechanism families.</h2>
+            <p class="sub">From clamps and transmissions to clocks, counters, and coin sorters.</p>
+          </header>
+          <figure class="figure-card zoomable" data-reveal data-full="assets/img/fig3-2000.webp">
+            <img src="assets/img/fig3-1200.webp" srcset="assets/img/fig3-1200.webp 1200w, assets/img/fig3-2000.webp 2000w" sizes="(max-width: 1220px) 100vw, 1180px" width="1200" height="753" loading="lazy" decoding="async" alt="Paper Figure 3: 75 mechanisms built by LLM agents across all 46 FunCADBench families" />
+            <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+            <figcaption><b>Figure 3.</b> 75 agent-built assemblies covering all 46 families.</figcaption>
+          </figure>
+          <figure class="figure-card zoomable" data-reveal data-full="assets/img/fig2.webp">
+            <img src="assets/img/fig2.webp" width="1616" height="980" loading="lazy" decoding="async" alt="Paper Figure 2: FunCADBench taxonomy with representative mechanisms for motion primitives, topology, complexity, contact, and geometric difficulty" />
+            <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
+            <figcaption><b>Figure 2.</b> Five axes of mechanical demand.</figcaption>
+          </figure>
+
+          <div class="subhead" data-reveal>
+            <h3>Browse the builds</h3>
+            <p>Rendered from delivered CAD · tap to enlarge</p>
+          </div>
+          <div class="chip-row" id="gallery-filters" role="group" aria-label="Filter builds by agent"></div>
+          <div class="gallery" id="gallery"></div>
+          <div class="center-row"><button class="pill on-page" type="button" id="gallery-more">Show all builds</button></div>
+
+          <div class="subhead" data-reveal>
+            <h3>All 46 families</h3>
+            <p>Highlight by demand axis</p>
+          </div>
+          <div class="chip-row" id="family-filters" role="group" aria-label="Highlight families by demand axis"></div>
+          <div class="families" id="families"></div>
+        </div>
+      </section>
+
+      <section id="results" class="section">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">07 · Results</span>
+            <h2>Physics feedback makes better designers.</h2>
+          </header>
+          <div class="results-grid" data-reveal>
+            <div class="card">
+              <div class="card-head"><h3>Tasks solved</h3><span>out of 46 · full harness</span></div>
+              <div class="bars" id="model-bars"></div>
+              <p class="card-note">Under each name: median active time · est. API cost per task.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h3>What the harness adds</h3><span>tasks solved</span></div>
+              <div class="pair" id="ablation-bars"></div>
+              <div class="legend"><span><i style="--c: var(--astra)"></i>Astra</span><span><i style="--c: var(--grok)"></i>Grok</span></div>
+            </div>
+          </div>
+          <div class="takeaways" data-reveal>
+            <div class="takeaway"><strong>8<span class="arrow"> → </span>22</strong><span>Astra, from simulation tools to the full harness.</span></div>
+            <div class="takeaway"><strong>22<span class="arrow"> → </span>0</strong><span>Astra when feedback is reduced to pass/fail.</span></div>
+            <div class="takeaway"><strong>36<small>/46</small></strong><span>Grok with retained history (≤8 attempts), at half of Astra’s API cost.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" class="section tint">
+        <div class="wrap">
+          <header class="section-head" data-reveal>
+            <span class="kicker">Resources</span>
+            <h2>Dig deeper.</h2>
+          </header>
+          <div class="resources" data-reveal>
+            <a class="resource" href="assets/paper.pdf" target="_blank" rel="noreferrer"><svg><use href="#i-paper" /></svg><b>Paper</b><span>PDF · 40 pages</span></a>
+            <a class="resource" href="https://zigeng.duckdns.org/harness/demo/" data-demo-link target="_blank" rel="noreferrer"><svg><use href="#i-cube" /></svg><b>Comparison demo</b><span>Interactive assemblies</span></a>
+            <button class="resource" type="button" data-film><svg><use href="#i-play" /></svg><b>Prototype film</b><span>2:39 · six printed mechanisms</span></button>
+            <div class="resource muted"><svg><use href="#i-code" /></svg><b>Code &amp; dataset</b><span>Coming soon</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+        <span>Can It Actually Work? Synthesizing Functional CAD Mechanisms · 2026</span>
+      </div>
+    </footer>
+
+    <div class="overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+      <button class="overlay-close" type="button" aria-label="Close"><svg><use href="#i-close" /></svg></button>
+      <figure><img alt="" /><figcaption></figcaption></figure>
+    </div>
+    <div class="overlay" id="film" role="dialog" aria-modal="true" aria-label="Prototype film" hidden>
+      <button class="overlay-close" type="button" aria-label="Close"><svg><use href="#i-close" /></svg></button>
+      <video controls playsinline preload="none" data-poster="assets/film-poster.jpg" data-src="https://zigeng.duckdns.org/funcad/assets/mechanical-benchmark-showcase.mp4"></video>
+    </div>
+
+    <script>
+      import "./script.js";
+      import "./failure_viewer.js";
+    </script>
+  </body>
+</html>
