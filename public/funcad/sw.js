@@ -13,12 +13,12 @@
  * Bump VERSION whenever the precache list or a ?v= value changes; a new
  * VERSION also deletes everything older workers cached.
  */
-const VERSION = "20261011-3";
+const VERSION = "20261011-4";
 const CACHE = `funcad-${VERSION}`;
 const SHELL = [
   "./",
-  "styles.css?v=20261011-3",
-  "script.js?v=20261011-3",
+  "styles.css?v=20261011-4",
+  "script.js?v=20261011-4",
   "failure_viewer.js?v=20261011-3",
   "favicon.svg",
   "assets/hero/hero.jpg",
