@@ -89,7 +89,7 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Paper: https://arxiv.org/abs/2606.02521
 - Code: https://github.com/UGVly/DrPO
 - Figure: https://ugvly.github.io/DrPO/assets/drpo-method-overview.webp — the complete overview from the official project page’s Method section, showing the feature-space drift construction and samples across finetuning steps. Checked 11 October 2026; resized to 1,200 pixels wide and encoded as WebP without cropping.
-- Summary revised on 12 October 2026 against the [paper's introduction and method](https://arxiv.org/html/2606.02521v3): it emphasizes synthesizing feature-space update directions from sample preferences. Avoiding differentiation through rewards is not presented as the distinguishing contribution, since policy-gradient methods can also do this.
+- Summary revised on 12 October 2026 against the [paper's abstract and results](https://arxiv.org/html/2606.02521v3): the impact is effective and efficient preference alignment for one-step generative models. Effectiveness is supported by alignment gains over the evaluated reward-gradient-free one-step baselines; efficiency is supported by reduced training computation with HPSv3 relative to the evaluated reward-gradient baseline. The description makes no inference-speed claim and does not treat avoiding reward differentiation as a distinction from policy-gradient methods.
 - Authors: Zhou Jiang, Yandong Wen, Zhen Liu. NeurIPS 2026 follows the PI's author-maintained publication record, also displayed on https://itszhen.com/. The project page and arXiv record verify the method and authors but currently omit the conference label.
 
 ## ASAP

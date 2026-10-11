@@ -83,7 +83,7 @@
     "id": "drpo",
     "name": "DrPO",
     "title": "Drifting Preference Optimization for One-Step Generative Models",
-    "summary": "Turning sample preferences into feature-space update directions for one-step image generators.",
+    "summary": "Effective and efficient preference alignment for one-step generative models.",
     "authors": "Zhou Jiang, Yandong Wen, Zhen Liu",
     "venue": "NeurIPS",
     "year": 2026,
