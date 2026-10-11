@@ -41,6 +41,15 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - The room illustration expresses the lab's “Understand. Create.” theme; it is conceptual artwork rather than a figure reporting a research result.
 - Astro generates optimized WebP variants from the local source asset. The locally served IBM Plex Sans font is accompanied by `public/fonts/OFL.txt`.
 
+## FunCAD
+
+- Project: https://thegenlab.ai/funcad/ — the project website hosted in this repository.
+- Paper: https://thegenlab.ai/funcad/assets/paper.pdf — the technical report published with the project website.
+- Code: not yet released; the project page lists code and dataset as coming soon, so no Code link is included.
+- Figure: Figure 1 on page 1 of the paper (“From a user request to an agent-designed prototype”). The complete figure was rendered from the authors' PDF, with the caption and line numbers excluded, then resized to 1,200 pixels wide and encoded as WebP.
+- Title: Can It Actually Work? Synthesizing Functional CAD Mechanisms. Authors: Wenqian Zhang, Yangyi Huang, Zigeng Xu, Weiyang Liu, Zhen Liu, in the paper's order. The venue label, Technical Report, follows the paper's running header; the year 2026 follows the project page.
+- Added on 11 October 2026 as the first carousel item at the FunCAD team's request. The summary paraphrases the paper's abstract without adding performance claims.
+
 ## PAct
 
 - Project: https://pact-project.github.io/
@@ -118,6 +127,6 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Venue: ICLR 2025, confirmed by the [official proceedings](https://proceedings.iclr.cc/paper_files/paper/2025/hash/ec52962a55a83c3d860b5c9b7338422b-Abstract-Conference.html). The year follows the conference publication; the original preprint appeared in December 2024. Sources checked 11 October 2026.
 - The summary describes reward-gradient-based diffusion alignment with diversity and prior preservation, without adding performance claims.
 
-The complete, uncropped research figure sources are stored in `src/assets/research/`; most were initially prepared at 1,200 pixels wide. Since 11 October 2026, Astro generates 320-, 480-, and 640-pixel-wide WebP thumbnails at build time (quality 76) for the carousel. The page serves responsive thumbnails with lazy loading and asynchronous decoding; the higher-resolution source files are not linked by the homepage. This changes preview delivery, not figure content or source attribution. The carousel order is BesiegeField, EVA, DrPO, PAct, ASAP, VGG-Flow, Nabla-GFlowNet, G-Shell, MeshDiffusion. All project links retain their original external addresses.
+The complete, uncropped research figure sources are stored in `src/assets/research/`; most were initially prepared at 1,200 pixels wide. Since 11 October 2026, Astro generates 320-, 480-, and 640-pixel-wide WebP thumbnails at build time (quality 76) for the carousel. The page serves responsive thumbnails with lazy loading and asynchronous decoding; the higher-resolution source files are not linked by the homepage. This changes preview delivery, not figure content or source attribution. The carousel order is FunCAD, BesiegeField, EVA, DrPO, PAct, ASAP, VGG-Flow, Nabla-GFlowNet, G-Shell, MeshDiffusion. FunCAD links to its project website in this repository; all other project links retain their original external addresses.
 
 Figures are reproduced as research previews linking directly to the corresponding project sites. Original research images remain credited to their respective authors; no broad asset license is asserted here. Descriptions are concise paraphrases, not new performance claims. Existing project websites retain their original URLs; none has been migrated to the GenLab domain.

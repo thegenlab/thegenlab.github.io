@@ -1,5 +1,29 @@
 [
   {
+    "id": "funcad",
+    "name": "FunCAD",
+    "title": "Can It Actually Work? Synthesizing Functional CAD Mechanisms",
+    "summary": "LLM agents design CAD mechanisms, test whether they work in physics simulation, and revise them.",
+    "authors": "Wenqian Zhang, Yangyi Huang, Zigeng Xu, Weiyang Liu, Zhen Liu",
+    "venue": "Technical Report",
+    "year": 2026,
+    "featured": true,
+    "order": -1,
+    "image": "../assets/research/funcad.webp",
+    "imageAlt": "From a user request to an agent-designed prototype: a request to reach a rear cup, its functional goals, the CAD mechanism tested in simulation, and the 3D-printed prototype lifting the cup.",
+    "imageFit": "contain",
+    "links": [
+      {
+        "label": "Project",
+        "url": "https://thegenlab.ai/funcad/"
+      },
+      {
+        "label": "Paper",
+        "url": "https://thegenlab.ai/funcad/assets/paper.pdf"
+      }
+    ]
+  },
+  {
     "id": "besiegefield",
     "name": "BesiegeField",
     "title": "Compositional Machine Design as Program Synthesis with LLMs",
