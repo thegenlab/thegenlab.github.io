@@ -7,24 +7,24 @@
  * files are served from the cache and refreshed in the background, so a
  * changed file appears one load later even without a new ?v= value. Videos
  * bypass the worker so the browser can stream them with range requests.
- * Other apps published below this directory (the GenLab copy serves the
- * comparison demo at demo/) bypass it too and keep their own caching.
+ * Pages below this directory, such as the comparison demo in demo/, bypass
+ * it too and keep the browser's own caching.
  *
  * Bump VERSION whenever the precache list or a ?v= value changes; a new
  * VERSION also deletes everything older workers cached.
  */
-const VERSION = "20261011-2";
+const VERSION = "20261011-3";
 const CACHE = `funcad-${VERSION}`;
 const SHELL = [
   "./",
-  "styles.css?v=20261011-1",
-  "script.js?v=20261011-1",
-  "failure_viewer.js?v=20261010-2",
+  "styles.css?v=20261011-3",
+  "script.js?v=20261011-3",
+  "failure_viewer.js?v=20261011-3",
   "favicon.svg",
   "assets/hero/hero.jpg",
 ];
 const VIEWERS = [
-  "assets/failure-viewer/three-viewer.js?v=20261010-2",
+  "assets/failure-viewer/three-viewer.js?v=20261011-3",
   "assets/failures/bicycle-failure-detail-coarse.glb?v=20261010-2",
   "assets/failures/clock-failure-detail.glb?v=20261010-2",
   "assets/failures/bicycle-failure-detail.glb?v=20261010-2",

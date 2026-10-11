@@ -1,46 +1,167 @@
 ---
-// Generated from comparison_demo/viewer/index.html by deploy/thegenlab/export_site.py.
-// Edit the viewer source in the FunCAD-Harness repository and export again.
+// Generated from project_site/demo/index.html by deploy/thegenlab/export_site.py
+// in the FunCAD-Harness repository. Edit the source there and export again.
 ---
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>公开 CAD 数据集 vs simulation-ready 设计包 — 统一仿真回放</title>
-  <link rel="stylesheet" href="/funcad/demo/viewer.css?v=dead2">
-</head>
-<body>
-  <div class="page">
-    <nav class="mode-tabs" aria-label="目录切换">
-      <a href="/funcad/demo/" id="tab-dataset">数据集</a>
-      <a href="/funcad/demo/?mode=animation" id="tab-animation">Animation</a>
-    </nav>
-    <header>
-      <h1 id="page-title">公开 CAD 数据集 vs simulation-ready 设计包 — 统一仿真回放</h1>
-      <div class="tallies" id="tallies"></div>
-      <div class="legend" id="page-legend">
-        <p><b>静置关</b>：无输入、重力 4 s。每个非接地体位移都 &lt; 10 mm → STABLE，否则 COLLAPSE。</p>
-        <p><b>微驱动关</b>：仅静置 STABLE 的案例；给第一个可动关节加恒定小载荷。关节坐标前进 ≥ 0.175 rad / 10 mm → MOTION_OK。</p>
-        <p><b>诊断</b>：同样的微驱动，但关掉被驱动一对的接触。只作对照，不是判定。</p>
-        <p><b>10× 驱动</b>：载荷乘 10，其余与微驱动相同。只作对照，不是判定。</p>
-        <p><b>逐步发散</b>：个别静置中途炸掉的案例另有 1 ms 采样回放。飞出位移会夹到 12 m，只为看清方向。</p>
-        <div class="legend-swatches">
-          <span class="badge badge-stable">STABLE / MOTION_OK</span>
-          <span class="badge badge-collapse">COLLAPSE</span>
-          <span class="badge badge-dead">MOTION_DEAD</span>
-          <span class="badge badge-erratic">MOTION_ERRATIC</span>
-          <span class="badge badge-diag">诊断 / 10×（描边）</span>
-        </div>
-      </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0f13" />
+    <meta name="description" content="Public CAD assemblies and FunCAD design packages in one rigid-body simulator, under the same gravity and push tests." />
+    <link rel="canonical" href="https://thegenlab.ai/funcad/demo/" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <title>Datasets in physics · FunCAD demo</title>
+    <script is:inline>
+      (function () {
+        var t = "";
+        try { t = localStorage.getItem("funcad-theme") || ""; } catch (e) {}
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles.css?v=20261011-3" />
+    <link rel="stylesheet" href="demo.css?v=20261011-3" />
+  </head>
+  <body class="demo-page">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" /><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" /></symbol>
+      <symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8" /><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8" /></symbol>
+    </svg>
+
+    <header class="nav is-solid">
+      <a class="brand" href="../" aria-label="FunCAD project page"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+      <nav class="nav-links" aria-label="Demo">
+        <a class="nav-optional" href="../">Project page</a>
+        <a href="./" aria-current="page">Datasets in physics</a>
+        <a href="animation/">Animation vs. physics</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"><svg><use href="#i-theme" /></svg></button>
     </header>
-    <main id="sections"></main>
-    <footer class="page-foot">
-      <a href="../report/comparison_report.md">对比报告</a>
-      <a href="../runs/summary.md">汇总表</a>
+
+    <main>
+      <section class="demo-hero">
+        <div class="wrap">
+          <span class="kicker">Comparison demo</span>
+          <h1>Do public CAD assemblies <em>actually work?</em></h1>
+          <p class="sub">One rigid-body simulator, the same two tests for every assembly: stand still under gravity for 4 s, then take a small push on the first joint.</p>
+          <nav class="tabs" aria-label="Demo pages">
+            <a class="tab" href="./" aria-current="page">Datasets in physics</a>
+            <a class="tab" href="animation/">Animation vs. physics</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="demo-section" aria-label="Results by source">
+        <div class="wrap">
+          <div class="score">
+            <p class="score-legend"><span class="fall">Falls apart</span><span class="jam">Stands, won't move</span><span class="works">Works</span></p>
+            <div class="score-row"><span class="score-name">Fusion 360 Gallery<small>8 assemblies</small></span><span class="score-bar"><span class="fall" style="--n: 4">4</span><span class="jam" style="--n: 4">4</span></span></div>
+            <div class="score-row"><span class="score-name">AutoMate<small>8 assemblies</small></span><span class="score-bar"><span class="fall" style="--n: 1">1</span><span class="jam" style="--n: 7">7</span></span></div>
+            <div class="score-row"><span class="score-name">Articraft<small>8 assemblies</small></span><span class="score-bar"><span class="fall" style="--n: 3">3</span><span class="jam" style="--n: 4">4</span><span class="works" style="--n: 1">1</span></span></div>
+            <div class="score-row ours"><span class="score-name">FunCAD packages<small>3 designs</small></span><span class="score-bar"><span class="works" style="--n: 3">3</span></span></div>
+          </div>
+          <p class="demo-note">Public assemblies were sampled from mechanism types that our tasks also cover, such as gear trains, hinges, sliders and linkages.</p>
+        </div>
+      </section>
+
+      <section class="demo-section tint" aria-labelledby="fall">
+        <div class="wrap">
+          <header class="demo-head"><h2 id="fall">Can't even stand</h2><p><b>8 of 24</b> public assemblies fall apart under gravity alone.</p></header>
+          <div class="cards three">
+            <article class="demo-card">
+              <div class="card-media"><figure class="clip"><video data-src="media/grippers.mp4" data-poster="media/grippers.jpg" muted loop playsinline preload="none" aria-label="Two hinged grippers falling as one, since no part is anchored"></video><span class="clip-label bad">Falls</span></figure></div>
+              <div class="card-body">
+                <h3>Nothing is fixed down</h3>
+                <p>No part is anchored to the ground, so the whole assembly drops.</p>
+                <div class="card-meta"><span>AutoMate · slowed 11×</span><a class="open-3d" href="case/?id=grippers"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="card-media"><figure class="clip"><video data-src="media/pump.mp4" data-poster="media/pump.jpg" muted loop playsinline preload="none" aria-label="Washers and a bushing dropping out of a piston pump; the housing is drawn see-through"></video><span class="clip-label bad">Parts drop out</span></figure></div>
+              <div class="card-body">
+                <h3>Parts with no joint</h3>
+                <p>Washers and a bushing sit in place but belong to no joint, so they drop out of the pump.</p>
+                <div class="card-meta"><span>Fusion 360 Gallery · slowed 3×</span><a class="open-3d" href="case/?id=pump"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="card-media"><figure class="clip"><video data-src="media/arm.mp4" data-poster="media/arm.jpg" muted loop playsinline preload="none" aria-label="A robotic arm folding down under its own weight"></video><span class="clip-label bad">Sags</span></figure></div>
+              <div class="card-body">
+                <h3>Joints that hold nothing</h3>
+                <p>Its joints turn freely and nothing holds them, so the arm folds under its own weight.</p>
+                <div class="card-meta"><span>Articraft</span><a class="open-3d" href="case/?id=arm"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section" aria-labelledby="jam">
+        <div class="wrap">
+          <header class="demo-head"><h2 id="jam">Stands, but won't move</h2><p><b>15 of 24</b> hold still, then don't move under the test push.</p></header>
+          <div class="cards two">
+            <article class="demo-card">
+              <div class="card-media split" data-sync>
+                <figure class="clip"><video data-src="media/door-push.mp4" data-poster="media/door-push.jpg" muted loop playsinline preload="none" aria-label="A door pushed about its hinge does not move"></video><span class="clip-label bad">Test push</span></figure>
+                <figure class="clip"><video data-src="media/door-free.mp4" data-poster="media/door-free.jpg" muted loop playsinline preload="none" aria-label="The same push with door-frame contact removed swings the door open"></video><span class="clip-label good">Contact removed</span></figure>
+              </div>
+              <div class="card-body">
+                <h3>Touching faces lock the joint</h3>
+                <p>The hinge is right, but door and frame touch with zero clearance. Contact holds it shut; even a 10× push barely moves it.</p>
+                <div class="card-meta"><span>Fusion 360 Gallery</span><a class="open-3d" href="case/?id=door"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="card-media split" data-sync>
+                <figure class="clip"><video data-src="media/ring-push.mp4" data-poster="media/ring-push.jpg" muted loop playsinline preload="none" aria-label="A ring gear with three gears does not turn under the test push"></video><span class="clip-label bad">Test push</span></figure>
+                <figure class="clip"><video data-src="media/ring-x10.mp4" data-poster="media/ring-x10.jpg" muted loop playsinline preload="none" aria-label="At ten times the push the gear train turns"></video><span class="clip-label good">10× push</span></figure>
+              </div>
+              <div class="card-body">
+                <h3>Only a much bigger push turns it</h3>
+                <p>The gears mesh with zero backlash. The ring gear ignores the test push and turns only at ten times the load.</p>
+                <div class="card-meta"><span>AutoMate</span><a class="open-3d" href="case/?id=ringgear"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section tint" aria-labelledby="ours">
+        <div class="wrap">
+          <header class="demo-head"><h2 id="ours">Ours: built to be tested</h2><p>Same simulator, same push: <b>3 of 3</b> stand, then turn their first joint.</p></header>
+          <div class="cards two">
+            <article class="demo-card">
+              <div class="card-media"><figure class="clip"><video data-src="media/clock.mp4" data-poster="media/clock.jpg" muted loop playsinline preload="none" aria-label="Our alarm clock: the push turns the gear train and the hands move"></video><span class="clip-label good">Moves</span></figure></div>
+              <div class="card-body">
+                <h3>Mechanical alarm clock</h3>
+                <p>The push on the barrel turns the gear train, and the hands move.</p>
+                <div class="card-meta"><span>FunCAD package</span><a class="open-3d" href="case/?id=clock"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="card-media"><figure class="clip"><video data-src="media/wiper.mp4" data-poster="media/wiper.jpg" muted loop playsinline preload="none" aria-label="Our four-bar wiper: the crank drives the arm through its sweep"></video><span class="clip-label good">Moves</span></figure></div>
+              <div class="card-body">
+                <h3>Four-bar windshield wiper</h3>
+                <p>The crank drives the coupler, and the arm sweeps.</p>
+                <div class="card-meta"><span>FunCAD package</span><a class="open-3d" href="case/?id=wiper"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+          </div>
+          <p class="demo-note">Rigid-body simulation in PyChrono with identical settings for every assembly. Gravity test: fails if any part moves more than 10 mm in 4 s. Push test: a load scaled to the driven part's weight on the first movable joint; passes at 10° or 10 mm of travel. Files are only translated: no joints, anchors or limits are added. Gear and rack meshing is not modelled, so our third design, a rack-and-pinion gate, passes on its pinion alone.</p>
+          <div class="demo-next"><a class="pill on-page pill-solid" href="animation/">Animation vs. physics<svg><use href="#i-arrow" /></svg></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="brand" href="../"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+        <span>Can It Actually Work? Synthesizing Functional CAD Mechanisms · 2026</span>
+      </div>
     </footer>
-  </div>
-  <script is:inline src="/funcad/demo/i18n.js?v=english-default-2"></script>
-  <script is:inline src="/funcad/demo/catalog.js"></script>
-</body>
+
+    <script is:inline type="module" src="demo.js?v=20261011-3"></script>
+  </body>
 </html>

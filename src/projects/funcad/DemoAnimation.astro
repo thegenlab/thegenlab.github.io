@@ -1,0 +1,108 @@
+---
+// Generated from project_site/demo/animation/index.html by deploy/thegenlab/export_site.py
+// in the FunCAD-Harness repository. Edit the source there and export again.
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0f13" />
+    <meta name="description" content="Animated mechanisms have no mass and no contact. The same parts replayed in rigid-body physics show which ones actually move." />
+    <link rel="canonical" href="https://thegenlab.ai/funcad/demo/animation/" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <title>Animation vs. physics · FunCAD demo</title>
+    <script is:inline>
+      (function () {
+        var t = "";
+        try { t = localStorage.getItem("funcad-theme") || ""; } catch (e) {}
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+    <link rel="stylesheet" href="../../styles.css?v=20261011-3" />
+    <link rel="stylesheet" href="../demo.css?v=20261011-3" />
+  </head>
+  <body class="demo-page">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" /><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" /></symbol>
+      <symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8" /><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8" /></symbol>
+    </svg>
+
+    <header class="nav is-solid">
+      <a class="brand" href="../../" aria-label="FunCAD project page"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+      <nav class="nav-links" aria-label="Demo">
+        <a class="nav-optional" href="../../">Project page</a>
+        <a href="../">Datasets in physics</a>
+        <a href="./" aria-current="page">Animation vs. physics</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"><svg><use href="#i-theme" /></svg></button>
+    </header>
+
+    <main>
+      <section class="demo-hero">
+        <div class="wrap">
+          <span class="kicker">Comparison demo</span>
+          <h1>An animation <em>always plays.</em></h1>
+          <p class="sub">Animated mechanisms have no mass and no contact, so nothing ever stops a part. We replay the same parts in physics.</p>
+          <nav class="tabs" aria-label="Demo pages">
+            <a class="tab" href="../">Datasets in physics</a>
+            <a class="tab" href="./" aria-current="page">Animation vs. physics</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="demo-section" aria-label="Animation and physics side by side">
+        <div class="wrap">
+          <div class="versus">
+            <article class="demo-card versus-row">
+              <div class="card-media split" data-sync>
+                <figure class="clip"><video data-src="../media/planetary-anim.mp4" data-poster="../media/planetary-anim.jpg" muted loop playsinline preload="none" aria-label="Animated planetary gear turning cleanly"></video><span class="clip-label plain">Animation</span></figure>
+                <figure class="clip"><video data-src="../media/planetary-phys.mp4" data-poster="../media/planetary-phys.jpg" muted loop playsinline preload="none" aria-label="The same planetary gear in physics, with overlapping teeth marked red"></video><span class="clip-label bad">Physics</span></figure>
+              </div>
+              <div class="card-body">
+                <h3>Teeth pass through each other</h3>
+                <p>The animation spins the planets on their pins. In physics those pins are locked and the centres sit too close, so the teeth overlap (red).</p>
+                <div class="card-meta"><span>Animated toy</span><a class="open-3d" href="../case/?id=planetary"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+            <article class="demo-card versus-row">
+              <div class="card-media split" data-sync>
+                <figure class="clip"><video data-src="../media/stool-anim.mp4" data-poster="../media/stool-anim.jpg" muted loop playsinline preload="none" aria-label="Animated folding stool closing its X frame"></video><span class="clip-label plain">Animation</span></figure>
+                <figure class="clip"><video data-src="../media/stool-phys.mp4" data-poster="../media/stool-phys.jpg" muted loop playsinline preload="none" aria-label="The same stool in physics stays open under the push"></video><span class="clip-label bad">Physics</span></figure>
+              </div>
+              <div class="card-body">
+                <h3>A stool that cannot fold</h3>
+                <p>The animation folds the X frame. In physics each foot is a slider that cannot tilt, so the frame stays open.</p>
+                <div class="card-meta"><span>Animated toy</span><a class="open-3d" href="../case/?id=stool"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+            <article class="demo-card versus-row">
+              <div class="card-media split" data-sync>
+                <figure class="clip"><video data-src="../media/wiper-anim.mp4" data-poster="../media/wiper-anim.jpg" muted loop playsinline preload="none" aria-label="Animated four-bar wiper sweeping"></video><span class="clip-label plain">Animation</span></figure>
+                <figure class="clip"><video data-src="../media/wiper-phys.mp4" data-poster="../media/wiper-phys.jpg" muted loop playsinline preload="none" aria-label="The same wiper in physics: the small push turns the crank and the arm sweeps"></video><span class="clip-label good">Physics</span></figure>
+              </div>
+              <div class="card-body">
+                <h3>Ours: it moves in physics too</h3>
+                <p>Under the same small push our wiper sweeps in physics. The arm stops at its designed limit, which the animation swings past.</p>
+                <div class="card-meta"><span>FunCAD package</span><a class="open-3d" href="../case/?id=wiperpair"><svg><use href="#i-cube" /></svg>Open in 3D</a></div>
+              </div>
+            </article>
+          </div>
+          <p class="demo-note">Animated toys are primitive parts moved by closed-form kinematics, the way animation-based methods present mechanisms. Physics runs the same parts with mass and contact under a small push on one joint. Red marks triangles that intersect another part.</p>
+          <div class="demo-next"><a class="pill on-page pill-solid" href="../">Datasets in physics<svg><use href="#i-arrow" /></svg></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+        <span>Can It Actually Work? Synthesizing Functional CAD Mechanisms · 2026</span>
+      </div>
+    </footer>
+
+    <script is:inline type="module" src="../demo.js?v=20261011-3"></script>
+  </body>
+</html>

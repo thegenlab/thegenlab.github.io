@@ -5,7 +5,7 @@
 const BLOCKED_PARTS = { bicycle: ["body_023"], clock: ["body_172", "body_174"] };
 // Resolved against the page rather than this module, so the URL still holds
 // when the GenLab copy bundles this file into Astro's /_astro/ directory.
-const LIB_URL = new URL("assets/failure-viewer/three-viewer.js?v=20261010-2", document.baseURI).href;
+const LIB_URL = new URL("assets/failure-viewer/three-viewer.js?v=20261011-3", document.baseURI).href;
 
 let lib = null;
 const loadLib = () => (lib ||= import(/* @vite-ignore */ LIB_URL));

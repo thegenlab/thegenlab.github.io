@@ -410,10 +410,38 @@ function setupFilm() {
   const box = $("#film");
   const video = $("video", box);
   const overlay = makeOverlay(box, {
-    onOpen: () => { loadVideo(video); video.play().catch(() => {}); },
+    onOpen: () => {
+      $$(".intro-player video").forEach((v) => v.pause());  // one soundtrack at a time
+      loadVideo(video);
+      video.play().catch(() => {});
+    },
     onClose: () => video.pause(),
   });
   $$("[data-film]").forEach((button) => button.addEventListener("click", () => overlay.open()));
+}
+
+// The narrated introduction plays only on request; its poster loads about a
+// screen ahead like the clips' posters.
+function setupIntro() {
+  const player = $(".intro-player");
+  if (!player) return;
+  const video = $("video", player);
+  $(".intro-play", player).addEventListener("click", () => {
+    loadPoster(video);
+    video.play().catch(() => {});
+  });
+  video.addEventListener("play", () => player.classList.add("is-playing"));
+  video.addEventListener("ended", () => player.classList.remove("is-playing"));
+  if (!("IntersectionObserver" in window)) {
+    loadPoster(video);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    loadPoster(video);
+    io.disconnect();
+  }, { rootMargin: "800px 0px" });
+  io.observe(player);
 }
 
 /* ---------- Offline cache ---------- */
@@ -421,16 +449,6 @@ function setupFilm() {
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
   window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); }, { once: true });
-}
-
-/* ---------- Links ---------- */
-
-function setupDemoLinks() {
-  const { hostname, pathname } = window.location;
-  let href = "https://thegenlab.ai/funcad/demo/";
-  if (hostname === "thegenlab.ai" || hostname === "www.thegenlab.ai") href = "/funcad/demo/";
-  else if (pathname.includes("/project_site/")) href = "/comparison_demo/viewer/";
-  $$("[data-demo-link]").forEach((a) => { a.href = href; });
 }
 
 renderSims();
@@ -443,7 +461,7 @@ setupReveal();
 setupTabs();
 setupLightbox();
 setupFilm();
-setupDemoLinks();
+setupIntro();
 observeVideos();
 registerServiceWorker();
 if (reduceMotion) $(".hero-video")?.pause();

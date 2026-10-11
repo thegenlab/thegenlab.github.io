@@ -1,185 +1,71 @@
 ---
-// Generated from comparison_demo/viewer/case.html by deploy/thegenlab/export_site.py.
-// Edit the viewer source in the FunCAD-Harness repository and export again.
+// Generated from project_site/demo/case/index.html by deploy/thegenlab/export_site.py
+// in the FunCAD-Harness repository. Edit the source there and export again.
 ---
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="/funcad/demo/">
-  <title>仿真回放</title>
-  <link rel="stylesheet" href="/funcad/demo/viewer.css?v=dead3">
-</head>
-<body class="case-page">
-  <div id="stage">
-    <canvas id="view"></canvas>
-    <div id="grid-caption">参考网格（仿真中没有地面）</div>
-    <div id="load-msg">正在载入网格与轨迹…</div>
-  </div>
-  <div id="dual-stage" hidden>
-    <div class="dual-panes">
-      <div class="pane" id="pane-a">
-        <canvas class="view" id="view-a"></canvas>
-        <div class="pane-label pane-label-a">A · 时间轴动画</div>
-        <div class="part-labels" id="labels-a"></div>
-        <div class="load-msg" id="load-msg-a">正在载入网格与轨迹…</div>
-      </div>
-      <div class="pane pane-physics" id="pane-b">
-        <canvas class="view" id="view-b"></canvas>
-        <div class="pane-label pane-label-b">B · 有质量有接触</div>
-        <div class="part-labels" id="labels-b"></div>
-        <div class="load-msg" id="load-msg-b">正在载入网格与轨迹…</div>
-      </div>
-    </div>
-    <p class="dual-thesis">左边按公式转完，右边同一套零件进物理。</p>
-  </div>
-  <aside id="panel">
-    <div id="panel-case">
-      <a class="back" href="/funcad/demo/">← 返回目录</a>
-      <h1 id="short-id"></h1>
-      <div id="full-id" class="full-id"></div>
-      <div id="source-label" class="source-pill"></div>
-      <p id="description"></p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0f13" />
+    <meta name="description" content="Interactive replay of one recorded rigid-body simulation from the FunCAD comparison demo." />
+    <link rel="canonical" href="https://thegenlab.ai/funcad/demo/case/" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <title>3D replay · FunCAD demo</title>
+    <script is:inline>
+      (function () {
+        var t = "";
+        try { t = localStorage.getItem("funcad-theme") || ""; } catch (e) {}
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+    <link rel="stylesheet" href="../../styles.css?v=20261011-3" />
+    <link rel="stylesheet" href="../demo.css?v=20261011-3" />
+  </head>
+  <body class="demo-page">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8" /><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z" /></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="4" height="14" rx="1" /><rect x="13.5" y="5" width="4" height="14" rx="1" /></symbol>
+      <symbol id="i-orbit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.5-6" /><path d="M20.5 4v4.5H16" /></symbol>
+    </svg>
 
-      <div class="tabs" id="phase-tabs">
-        <button type="button" data-phase="static">静置</button>
-        <button type="button" data-phase="static_explode">静置：逐步发散</button>
-        <button type="button" data-phase="drive">微驱动</button>
-        <button type="button" data-phase="drive_nocontact">诊断：去接触驱动</button>
-        <button type="button" data-phase="drive_scale10">诊断：10× 驱动</button>
-      </div>
-      <div id="abort-note" class="abort-note" hidden></div>
+    <header class="nav is-solid">
+      <a class="brand" href="../../" aria-label="FunCAD project page"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FunCAD</a>
+      <nav class="nav-links" aria-label="Demo">
+        <a class="nav-optional" href="../../">Project page</a>
+        <a href="../" data-nav-cases>Datasets in physics</a>
+        <a href="../animation/" data-nav-pairs>Animation vs. physics</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"><svg><use href="#i-theme" /></svg></button>
+    </header>
 
-      <div class="transport">
-        <div class="transport-row">
-          <button type="button" class="primary" id="btn-play">播放</button>
-          <label><input type="checkbox" id="chk-loop" checked> 循环</label>
-          <button type="button" id="btn-step-back">−1 帧</button>
-          <button type="button" id="btn-step-fwd">+1 帧</button>
+    <main class="wrap case-layout">
+      <div class="case-stages" data-stages>
+        <div class="case-stage" data-stage="main"><span class="case-status">Loading the replay…</span></div>
+      </div>
+      <aside class="case-panel">
+        <a class="case-back" href="../" data-back>← Back to the demo</a>
+        <h1 data-title>3D replay</h1>
+        <p class="case-source" data-source></p>
+        <p data-blurb></p>
+        <div class="case-phases" role="tablist" aria-label="Test phase" data-phases></div>
+        <div class="case-status-text" aria-live="polite">
+          <span class="case-outcome" data-outcome hidden></span>
+          <p data-phase-note></p>
         </div>
-        <input type="range" id="scrub" min="0" max="4" step="0.001" value="0">
-        <div id="time-readout">t = 0.00 s / 4.00 s</div>
-        <div class="speed" id="speed-btns">
-          <button type="button" data-speed="0.05">0.05×</button>
-          <button type="button" data-speed="0.25">0.25×</button>
-          <button type="button" data-speed="0.5">0.5×</button>
-          <button type="button" class="active" data-speed="1">1×</button>
-          <button type="button" data-speed="2">2×</button>
-          <button type="button" data-speed="4">4×</button>
+        <div class="transport">
+          <button type="button" data-play aria-label="Pause"><svg><use href="#i-pause" /></svg></button>
+          <input type="range" min="0" max="1000" value="0" step="1" aria-label="Replay time" data-scrub />
+          <span class="case-time" data-time>0.00 s</span>
         </div>
-      </div>
+        <div class="case-tools"><span data-speed></span><button type="button" data-reset>Reset view</button></div>
+        <p class="case-source">Drag to orbit, scroll or pinch to zoom.</p>
+      </aside>
+    </main>
 
-      <div class="toggles">
-        <button type="button" id="btn-reset">重置视角</button>
-        <label><input type="checkbox" id="chk-follow"> 跟随运动</label>
-        <label><input type="checkbox" id="chk-axes"> 关节轴</label>
-        <label><input type="checkbox" id="chk-trails"> 轨迹</label>
-        <label><input type="checkbox" id="chk-ghost"> 接地体半透明</label>
-        <label><input type="checkbox" id="chk-wire"> 线框</label>
-      </div>
-
-      <h2>本相位判定</h2>
-      <div id="verdict-block"></div>
-
-      <h2>t = 0 接触</h2>
-      <div id="contacts-block"></div>
-
-      <h2>刚体</h2>
-      <table class="bodies" id="body-table">
-        <thead>
-          <tr>
-            <th>名称</th>
-            <th>质量 kg</th>
-            <th>现位移</th>
-            <th>max</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-
-      <h2>关节</h2>
-      <div id="joint-list"></div>
-
-      <h2>未映射特征</h2>
-      <div id="unsupported-block"></div>
-
-      <details class="notes" id="adapter-details">
-        <summary>适配器备注</summary>
-        <div id="adapter-block"></div>
-      </details>
-    </div>
-
-    <div id="panel-pair" hidden>
-      <a class="back" href="/funcad/demo/?mode=animation">← 返回 Animation 目录</a>
-      <h1 id="pair-title"></h1>
-      <div id="pair-id" class="full-id"></div>
-      <div class="source-pill">Animation</div>
-      <p id="pair-description"></p>
-      <div id="pair-related" class="meta-line" hidden></div>
-
-      <div class="track-blurb">
-        <h2>A 轨 · 时间轴动画</h2>
-        <p id="a-caption"></p>
-      </div>
-      <div class="track-blurb">
-        <h2>B 轨 · 有质量有接触</h2>
-        <p id="b-caption"></p>
-      </div>
-
-      <h2>B 相位</h2>
-      <div class="tabs" id="b-phase-tabs">
-        <button type="button" data-phase="static">静置</button>
-        <button type="button" data-phase="drive">微驱动</button>
-        <button type="button" data-phase="drive_nocontact">诊断：去接触驱动</button>
-      </div>
-      <div id="pair-abort-note" class="abort-note" hidden></div>
-
-      <div class="transport">
-        <div class="transport-row">
-          <button type="button" class="primary" id="pair-btn-play">播放</button>
-          <label><input type="checkbox" id="pair-chk-loop" checked> 循环</label>
-          <button type="button" id="pair-btn-step-back">−1 帧</button>
-          <button type="button" id="pair-btn-step-fwd">+1 帧</button>
-        </div>
-        <input type="range" id="pair-scrub" min="0" max="4" step="0.001" value="0">
-        <div id="pair-time-readout">t = 0.00 s / 4.00 s</div>
-        <div class="speed" id="pair-speed-btns">
-          <button type="button" data-speed="0.05">0.05×</button>
-          <button type="button" data-speed="0.25">0.25×</button>
-          <button type="button" data-speed="0.5">0.5×</button>
-          <button type="button" class="active" data-speed="1">1×</button>
-          <button type="button" data-speed="2">2×</button>
-          <button type="button" data-speed="4">4×</button>
-        </div>
-      </div>
-
-      <div class="pen-tools" id="pen-tools">
-        <h2>穿模</h2>
-        <p class="muted" id="pen-caption">标红互相穿进的零件，或只标相交三角。</p>
-        <div class="pen-btns">
-          <button type="button" id="chk-pen-body" class="pen-btn" aria-pressed="false">零件高亮</button>
-          <button type="button" id="chk-pen-region" class="pen-btn" aria-pressed="false">相交区域</button>
-        </div>
-      </div>
-
-      <div class="toggles">
-        <button type="button" id="pair-btn-reset">重置视角</button>
-        <label><input type="checkbox" id="pair-chk-axes"> 关节轴</label>
-        <label><input type="checkbox" id="pair-chk-trails"> 轨迹</label>
-        <label><input type="checkbox" id="pair-chk-wire"> 线框</label>
-        <label id="clip-toggle-wrap"><input type="checkbox" id="pair-chk-clip"> 剖视</label>
-      </div>
-
-      <h2>B 本相位判定</h2>
-      <div id="pair-verdict-block"></div>
-      <p class="muted" id="a-verdict-note">A 轨是时间轴姿态，没有物理判定。</p>
-    </div>
-  </aside>
-  <script is:inline src="/funcad/demo/vendor/three.min.js"></script>
-  <script is:inline src="/funcad/demo/vendor/OrbitControls.js"></script>
-  <script is:inline src="/funcad/demo/viewer.js?v=dead4"></script>
-  <script is:inline src="/funcad/demo/pair_viewer.js?v=dead12"></script>
-  <script is:inline src="/funcad/demo/i18n.js?v=english-default-2"></script>
-</body>
+    <script is:inline type="module" src="../demo.js?v=20261011-3"></script>
+    <script is:inline type="module" src="../case.js?v=20261011-3"></script>
+  </body>
 </html>

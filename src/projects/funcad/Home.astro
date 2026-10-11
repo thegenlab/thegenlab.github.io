@@ -25,7 +25,7 @@
         document.documentElement.classList.add("js");
       })();
     </script>
-    <link rel="stylesheet" href="/funcad/styles.css?v=20261011-1" />
+    <link rel="stylesheet" href="/funcad/styles.css?v=20261011-3" />
   </head>
   <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -66,21 +66,25 @@
           <h1>Can It Actually <em>Work?</em></h1>
           <p class="hero-sub">Synthesizing Functional CAD Mechanisms</p>
           <p class="hero-authors">
-            <span>Wenqian Zhang<sup>1†</sup></span>
-            <span>Yangyi Huang<sup>2†</sup></span>
-            <span>Zigeng Xu<sup>1†</sup></span>
-            <span>Weiyang Liu<sup>2</sup></span>
-            <span>Zhen Liu<sup>1</sup></span>
+            <span>Wenqian Zhang<sup>1,†</sup></span>
+            <span>Yangyi Huang<sup>2,†</sup></span>
+            <span>Zigeng Xu<sup>1,†</sup></span>
+            <span>Weiyang Liu<sup>2,‡</sup></span>
+            <span>Zhen Liu<sup>1,‡,*</sup></span>
           </p>
           <p class="hero-affiliations">
             <span><sup>1</sup>The Chinese University of Hong Kong (Shenzhen)</span>
             <span><sup>2</sup>The Chinese University of Hong Kong</span>
           </p>
-          <p class="hero-contribution">† These authors contributed equally to this work.</p>
+          <p class="hero-contribution">
+            <span><sup>†</sup>Equal contribution</span>
+            <span><sup>‡</sup>Equal advising</span>
+            <span><sup>*</sup>Corresponding author</span>
+          </p>
           <div class="hero-links">
-            <a class="pill pill-solid" href="assets/paper.pdf" target="_blank" rel="noreferrer"><svg><use href="#i-paper" /></svg>Paper</a>
+            <a class="pill pill-solid" href="assets/paper.pdf?v=20261011" target="_blank" rel="noreferrer"><svg><use href="#i-paper" /></svg>Paper</a>
             <button class="pill" type="button" data-film><svg><use href="#i-play" /></svg>Video</button>
-            <a class="pill" href="https://thegenlab.ai/funcad/demo/" data-demo-link target="_blank" rel="noreferrer"><svg><use href="#i-cube" /></svg>Demo</a>
+            <a class="pill" href="demo/"><svg><use href="#i-cube" /></svg>Demo</a>
             <span class="pill pill-muted" title="Coming soon"><svg><use href="#i-code" /></svg>Code <small>soon</small></span>
             <span class="pill pill-muted" title="Coming soon"><svg><use href="#i-data" /></svg>Dataset <small>soon</small></span>
           </div>
@@ -92,6 +96,13 @@
       <section id="overview" class="section">
         <div class="wrap">
           <p class="lead" data-reveal>A CAD model can look right and still fail. <span>We ask agents to build mechanisms that pass physics tests.</span></p>
+          <figure class="intro-player" data-reveal>
+            <video controls playsinline preload="none" data-poster="assets/intro/funcad-intro.jpg" aria-label="FunCAD introduction video">
+              <source src="assets/intro/funcad-intro.mp4" type="video/mp4" />
+              <track kind="captions" src="assets/intro/funcad-intro.vtt" srclang="en" label="English" />
+            </video>
+            <button class="intro-play" type="button"><span><i><svg><use href="#i-play" /></svg></i>Watch the introduction · 3:06</span></button>
+          </figure>
           <figure class="figure-card zoomable" data-reveal data-full="assets/img/fig1.webp">
             <img src="assets/img/fig1.webp" width="1616" height="720" decoding="async" alt="Paper Figure 1: a cup-access request becomes functional goals, an agent-built CAD model tested in simulation, and a printed prototype" />
             <span class="zoom-hint"><svg><use href="#i-zoom" /></svg></span>
@@ -131,7 +142,7 @@
             </div>
           </div>
           <div class="center-row" data-reveal>
-            <a class="pill on-page" href="https://thegenlab.ai/funcad/demo/" data-demo-link target="_blank" rel="noreferrer"><svg><use href="#i-cube" /></svg>Compare full assemblies in the demo<svg><use href="#i-arrow" /></svg></a>
+            <a class="pill on-page" href="demo/"><svg><use href="#i-cube" /></svg>Compare full assemblies in the demo<svg><use href="#i-arrow" /></svg></a>
           </div>
         </div>
       </section>
@@ -272,9 +283,6 @@
             <figure class="zoomable" style="--r: 1.7766" data-full="assets/img/proto-lock.webp" data-caption="Three-digit combination lock"><img src="assets/img/proto-lock.webp" width="1400" height="788" loading="lazy" decoding="async" alt="Printed three-digit combination lock with numbered code wheels" /></figure>
             <figure class="zoomable" style="--r: 1.7766" data-full="assets/img/proto-timer.webp" data-caption="Gravity timer"><img src="assets/img/proto-timer.webp" width="1400" height="788" loading="lazy" decoding="async" alt="Printed gravity timer assembly" /></figure>
           </div>
-          <div class="center-row" data-reveal>
-            <button class="pill on-page pill-solid" type="button" data-film><svg><use href="#i-play" /></svg>Watch the full film · 2:39</button>
-          </div>
         </div>
       </section>
 
@@ -346,9 +354,9 @@
             <h2>Dig deeper.</h2>
           </header>
           <div class="resources" data-reveal>
-            <a class="resource" href="assets/paper.pdf" target="_blank" rel="noreferrer"><svg><use href="#i-paper" /></svg><b>Paper</b><span>PDF · 40 pages</span></a>
-            <a class="resource" href="https://thegenlab.ai/funcad/demo/" data-demo-link target="_blank" rel="noreferrer"><svg><use href="#i-cube" /></svg><b>Comparison demo</b><span>Interactive assemblies</span></a>
-            <button class="resource" type="button" data-film><svg><use href="#i-play" /></svg><b>Prototype film</b><span>2:39 · six printed mechanisms</span></button>
+            <a class="resource" href="assets/paper.pdf?v=20261011" target="_blank" rel="noreferrer"><svg><use href="#i-paper" /></svg><b>Paper</b><span>PDF · 43 pages</span></a>
+            <a class="resource" href="demo/"><svg><use href="#i-cube" /></svg><b>Comparison demo</b><span>Interactive assemblies</span></a>
+            <button class="resource" type="button" data-film><svg><use href="#i-play" /></svg><b>Introduction video</b><span>3:06 · narrated, with captions</span></button>
             <div class="resource muted"><svg><use href="#i-code" /></svg><b>Code &amp; dataset</b><span>Coming soon</span></div>
           </div>
         </div>
@@ -366,12 +374,14 @@
       <button class="overlay-close" type="button" aria-label="Close"><svg><use href="#i-close" /></svg></button>
       <figure><img alt="" /><figcaption></figcaption></figure>
     </div>
-    <div class="overlay" id="film" role="dialog" aria-modal="true" aria-label="Prototype film" hidden>
+    <div class="overlay" id="film" role="dialog" aria-modal="true" aria-label="Introduction video" hidden>
       <button class="overlay-close" type="button" aria-label="Close"><svg><use href="#i-close" /></svg></button>
-      <video controls playsinline preload="none" data-poster="assets/film-poster.jpg" data-src="https://zigeng.duckdns.org/funcad/assets/mechanical-benchmark-showcase.mp4"></video>
+      <video controls playsinline preload="none" data-poster="assets/intro/funcad-intro.jpg" data-src="assets/intro/funcad-intro.mp4">
+        <track kind="captions" src="assets/intro/funcad-intro.vtt" srclang="en" label="English" />
+      </video>
     </div>
 
-    <script is:inline src="/funcad/script.js?v=20261011-1"></script>
-    <script is:inline type="module" src="/funcad/failure_viewer.js?v=20261010-2"></script>
+    <script is:inline src="/funcad/script.js?v=20261011-3"></script>
+    <script is:inline type="module" src="/funcad/failure_viewer.js?v=20261011-3"></script>
   </body>
 </html>
