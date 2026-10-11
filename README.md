@@ -65,7 +65,7 @@ npm run verify
 npm run preview
 ```
 
-`verify` checks Astro and the content schema, builds the static site, and checks generated anchors, assets and metadata. `preview` serves the production build.
+`verify` runs the carousel interaction regressions, checks Astro and the content schema, builds the static site, and checks generated anchors, assets and metadata. `preview` serves the production build.
 
 ## Updating content
 
@@ -109,4 +109,4 @@ Project figures come from the linked research websites; their source credits and
 
 The homepage caps research previews at 640 pixels and its illustration at 960 pixels. `npm run verify` guards a 10 MiB estimate for one decoded RGBA buffer per largest homepage image candidate; this is a maintenance budget, not a measurement of browser RAM. Review the budget when adding more featured projects. Global mouse-drag listeners exist only during a gesture, and active animation stops when the page is hidden.
 
-The carousel supports native touch and trackpad scrolling, mouse dragging, previous/next buttons, and keyboard navigation. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Keep each project website’s layout and styles independent of the homepage. The [project website guide](docs/PROJECTS.md) explains asset imports, nested routes and style isolation.
+The carousel supports native touch and trackpad scrolling, mouse dragging, previous/next buttons, and keyboard navigation. Mouse dragging tracks the pointer directly and uses brief momentum on release; pausing before release damps that momentum. Animation timing uses only animation-frame timestamps to avoid a backward first step in Chrome. It does not advance automatically, respects reduced-motion preferences, and remains scrollable without JavaScript. Keep all project content available in the page. Keep each project website’s layout and styles independent of the homepage. The [project website guide](docs/PROJECTS.md) explains asset imports, nested routes and style isolation.

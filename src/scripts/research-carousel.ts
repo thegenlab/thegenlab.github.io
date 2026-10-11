@@ -60,16 +60,19 @@ if (carousel) {
       ? stops.find(position => position > current + tolerance) ?? maximum
       : stops.findLast(position => position < current - tolerance) ?? 0);
   };
-  const coast = (initialVelocity: number) => {
-    if (reducedMotion.matches || Math.abs(initialVelocity) < 0.05) return;
-    let velocity = Math.max(-2, Math.min(2, initialVelocity));
+  const coast = (initialVelocity: number, idleTime: number) => {
+    // A paused mouse must not fling with an old movement sample.
+    let velocity = Math.max(-1.5, Math.min(1.5, initialVelocity)) * Math.exp(-idleTime / 40);
+    if (reducedMotion.matches || Math.abs(velocity) < 0.05) return;
     let position = track.scrollLeft;
-    let lastTime = performance.now();
+    let lastTime: number | null = null;
     const tick = (now: number) => {
-      const elapsed = Math.min(now - lastTime, 48);
+      // rAF timestamps can precede performance.now() at release in Chrome.
+      // Use the animation clock throughout so the first step cannot run backward.
+      const elapsed = lastTime === null ? 0 : Math.max(0, Math.min(now - lastTime, 48));
       lastTime = now;
-      const decay = Math.exp(-elapsed / 180);
-      position = clamp(position + velocity * 180 * (1 - decay));
+      const decay = Math.exp(-elapsed / 120);
+      position = clamp(position + velocity * 120 * (1 - decay));
       velocity *= decay;
       track.scrollLeft = position;
       if (Math.abs(velocity) > 0.02 && position > 0 && position < maximum) {
@@ -121,7 +124,8 @@ if (carousel) {
     const left = clamp(drag.left - dx);
     const elapsed = Math.max(1, event.timeStamp - drag.lastTime);
     const velocity = (left - drag.lastLeft) / elapsed;
-    drag.velocity = elapsed > 80 ? velocity : drag.velocity * 0.4 + velocity * 0.6;
+    const weight = 1 - Math.exp(-elapsed / 40);
+    drag.velocity += (velocity - drag.velocity) * weight;
     drag.lastLeft = left;
     drag.lastTime = event.timeStamp;
     track.scrollLeft = left;
@@ -135,7 +139,7 @@ if (carousel) {
     window.removeEventListener('pointercancel', endDrag);
     track.classList.remove('is-dragging');
     if (track.hasPointerCapture(ended.id)) track.releasePointerCapture(ended.id);
-    if (ended.active && event?.type === 'pointerup' && event.timeStamp - ended.lastTime < 80) coast(ended.velocity);
+    if (ended.active && event?.type === 'pointerup') coast(ended.velocity, Math.max(0, event.timeStamp - ended.lastTime));
   };
   track.addEventListener('lostpointercapture', endDrag);
   const pause = () => {
@@ -151,7 +155,7 @@ if (carousel) {
     else scheduleUpdate();
   });
   track.addEventListener('dragstart', event => event.preventDefault());
-  track.addEventListener('selectstart', event => { if (drag?.active) event.preventDefault(); });
+  track.addEventListener('selectstart', event => { if (drag) event.preventDefault(); });
   track.addEventListener('click', event => {
     if (suppressClick && event.detail > 0) {
       event.preventDefault();
