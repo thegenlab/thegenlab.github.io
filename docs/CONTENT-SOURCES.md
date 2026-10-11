@@ -48,7 +48,8 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Code: not yet released; the project page lists code and dataset as coming soon, so no Code link is included.
 - Figure: Figure 1 on page 1 of the paper (“From a user request to an agent-designed prototype”). The complete figure was rendered from the authors' PDF, with the caption and line numbers excluded, then resized to 1,200 pixels wide and encoded as WebP.
 - Title: Can It Actually Work? Synthesizing Functional CAD Mechanisms. Authors: Wenqian Zhang, Yangyi Huang, Zigeng Xu, Weiyang Liu, Zhen Liu, in the paper's order. The venue label, Technical Report, follows the paper's running header; the year 2026 follows the project page.
-- Added on 11 October 2026 as the first carousel item at the FunCAD team's request. The summary paraphrases the paper's abstract without adding performance claims.
+- Added on 11 October 2026 as the first carousel item at the FunCAD team's request.
+- Summary revised on 12 October 2026 against the abstract and introduction (pages 1–2): it emphasizes translating user requests into functional mechanisms and tailoring physical verification to each design, rather than listing the design/test/revision steps. It adds no performance claims.
 
 ## PAct
 
@@ -88,6 +89,7 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 - Paper: https://arxiv.org/abs/2606.02521
 - Code: https://github.com/UGVly/DrPO
 - Figure: https://ugvly.github.io/DrPO/assets/drpo-method-overview.webp — the complete overview from the official project page’s Method section, showing the feature-space drift construction and samples across finetuning steps. Checked 11 October 2026; resized to 1,200 pixels wide and encoded as WebP without cropping.
+- Summary revised on 12 October 2026 against the [paper's introduction and method](https://arxiv.org/html/2606.02521v3): it emphasizes synthesizing feature-space update directions from sample preferences. Avoiding differentiation through rewards is not presented as the distinguishing contribution, since policy-gradient methods can also do this.
 - Authors: Zhou Jiang, Yandong Wen, Zhen Liu. NeurIPS 2026 follows the PI's author-maintained publication record, also displayed on https://itszhen.com/. The project page and arXiv record verify the method and authors but currently omit the conference label.
 
 ## ASAP
