@@ -1,7 +1,6 @@
 ---
 // Generated from project_site/index.html by deploy/thegenlab/export_site.py
 // in the FunCAD-Harness repository. Edit the source there and export again.
-import "./styles.css";
 ---
 <!doctype html>
 <html lang="en">
@@ -26,6 +25,7 @@ import "./styles.css";
         document.documentElement.classList.add("js");
       })();
     </script>
+    <link rel="stylesheet" href="/funcad/styles.css?v=20261010-2" />
   </head>
   <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -360,9 +360,7 @@ import "./styles.css";
       <video controls playsinline preload="none" data-poster="assets/film-poster.jpg" data-src="https://zigeng.duckdns.org/funcad/assets/mechanical-benchmark-showcase.mp4"></video>
     </div>
 
-    <script>
-      import "./script.js";
-      import "./failure_viewer.js";
-    </script>
+    <script is:inline src="/funcad/script.js?v=20261010-2"></script>
+<script is:inline type="module" src="/funcad/failure_viewer.js?v=20261010-2"></script>
   </body>
 </html>

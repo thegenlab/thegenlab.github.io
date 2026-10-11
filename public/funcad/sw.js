@@ -14,6 +14,9 @@ const VERSION = "20261010-2";
 const CACHE = `funcad-${VERSION}`;
 const SHELL = [
   "./",
+  "styles.css?v=20261010-2",
+  "script.js?v=20261010-2",
+  "failure_viewer.js?v=20261010-2",
   "favicon.svg",
   "assets/hero/hero.jpg",
 ];
