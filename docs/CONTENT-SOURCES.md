@@ -44,7 +44,8 @@ Names and affiliations were supplied directly by the lab owner: Weiyang Liu — 
 ## FunCAD
 
 - Project: https://thegenlab.ai/funcad/ — the project website hosted in this repository.
-- Paper: https://thegenlab.ai/funcad/assets/paper.pdf — the technical report published with the project website.
+- Paper: https://arxiv.org/abs/2610.26861 — the technical report on arXiv.
+- Code: https://github.com/thegenlab/fun-CAD-harness — the public code repository.
 - Code: not yet released; the project page lists code and dataset as coming soon, so no Code link is included.
 - Figure: Figure 1 on page 1 of the paper (“From a user request to an agent-designed prototype”). The complete figure was rendered from the authors' PDF, with the caption and line numbers excluded, then resized to 1,200 pixels wide and encoded as WebP.
 - Title: Can It Actually Work? Synthesizing Functional CAD Mechanisms. Authors: Wenqian Zhang, Yangyi Huang, Zigeng Xu, Weiyang Liu, Zhen Liu, in the paper's order. The venue label, Technical Report, follows the paper's running header; the year 2026 follows the project page.

@@ -19,7 +19,11 @@
       },
       {
         "label": "Paper",
-        "url": "https://thegenlab.ai/funcad/assets/paper.pdf"
+        "url": "https://arxiv.org/abs/2610.26861"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/thegenlab/fun-CAD-harness"
       }
     ]
   },
